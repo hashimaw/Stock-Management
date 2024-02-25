@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancsaction History</title>
+    <link rel="stylesheet" href="/transactionhistorystyle.css">
+  </head>
+  <body class="bg-[#eeeeee]">
+
+    <div class="flex mt-2 justify-center bg-[#eeeeee] mb-20 ">    <!--Transaction History page-->
+        <div class=" w-11/12">
+    
+          <%- include('./partials/adminprofile.ejs') %>
+    
+          <div class="flex justify-center py-5"><!--date selector-->
+    
+            <div class="w-4/12 h-15 bg-white border border-slate-300  justify-center inline-flex">
+              <div class="h-[55px] justify-start items-center gap-10 inline-flex">
+                <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
+                  Transaction History
+                </div>
+                <button class="">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" hover:text-sky-500 w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                  </svg>
+                  
+                </button>
+              </div>
+            </div>
+          </div>
+         
+         
+                <div class="flex justify-center"><!--transaction table-->
+            <div class="w-11/12 border border-slate-300 bg-white px-5 py-1">
+              <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
+                Transactions
+              </div>
+              <table class="table-auto text-md">
+              <thead>
+                <tr class="text-slate-500 pb-40">
+                  <th></th>
+                  <th class="w-[22%] text-start">Name</th>
+                  <th class="w-1/12 text-start">Code</th>
+                  <th class="w-[10%] text-start">Date</th>
+                  <th class="w-1/12 text-start">Type</th>
+                  <th class="w-1/12 text-start">Quantity</th>
+                  <th class="w-[14%] text-start">Purchased Price</th>
+                  <th class="w-[12%] text-start">Selling Price</th>
+                  <th class="w-[10%] text-start">Sold Price</th>
+                  <th class="w-[10%] text-start">Profit</th>
+                  <th class="w-[12%] text-start">Image</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm font-medium">
+                <tr">
+                  <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
+                  <td>Macbook</td>
+                  <td>001</td>
+                  <td>apr-20-2024</td>
+                  <td>Laptop</td>
+                  <td>45</td>
+                  <td>$500</td>
+                  <td>$700</td>
+                  <td>$800</td>
+                  <td>$100</td>
+                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
+                  <td>Macbook</td>
+                  <td>001</td>
+                  <td>apr-20-2024</td>
+                  <td>Laptop</td>
+                  <td>45</td>
+                  <td>$500</td>
+                  <td>$700</td>
+                  <td>$800</td>
+                  <td>$100</td>
+                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
+                  <td>Macbook</td>
+                  <td>001</td>
+                  <td>apr-20-2024</td>
+                  <td>Laptop</td>
+                  <td>45</td>
+                  <td>$500</td>
+                  <td>$700</td>
+                  <td>$800</td>
+                  <td>$100</td>
+                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
+                  <td>Macbook</td>
+                  <td>001</td>
+                  <td>apr-20-2024</td>
+                  <td>Laptop</td>
+                  <td>45</td>
+                  <td>$500</td>
+                  <td>$700</td>
+                  <td>$800</td>
+                  <td>$100</td>
+                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <div class="flex border border-slate-300 w-5/12 text-sm font-medium mt-2 mr-12">
+                    <div class="p-5">
+                      Total for the Selected Day(s)
+                    </div>
+                    <div class="p-5">
+                      Sold Total
+                    </div>
+                    <div class="p-5">
+                      Profit Total
+                    </div>
+    
+                  </div>
+    
+          </div>
+    
+          <div class="flex justify-end">
+            <div class="flex border border-slate-300 w-[25%] text-lg font-bold mr-12">
+                    <div class="px-10 py-3">
+                      $500
+                    </div>
+                    <div class="pl-5 pr-10 py-3">
+                      $600
+                    </div>
+    
+                  </div>
+    
+          </div>
+          
+        </div>
+      </div>
+
+  </body>
+</html>

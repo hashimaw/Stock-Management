@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+    <link rel="stylesheet" href="/additemstyle.css">
+  </head>
+  <body class="bg-[#eeeeee]">
+    <div class="flex mt-2 justify-center bg-[#eeeeee] ">    <!--Add item page-->
+        <div class=" w-11/12">
+    
+          <%- include('./partials/adminprofile.ejs') %>
+          
+          <div class="flex justify-center py-5 "><!--add new product title-->
+    
+            <div class="w-2/12 h-15 bg-white border border-slate-300  justify-center inline-flex">
+              <div class="h-[55px] justify-start items-center gap-10 inline-flex">
+                <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
+                  Add New Product
+                </div>
+              </div>
+            </div>
+    
+          </div>
+         
+          <div class="flex justify-center mb-20"> <!--add new product form-->
+            <div class="w-11/12 border border-slate-300 bg-white py-5 px-10">
+              <div class="flex justify-around text-slate-500 text-lg font-bold font-['Montserrat']">
+                <div class="justify-center pb-5 ">
+                <div >Product Name</div>
+                <input id="email-address" name="email" type="email" autocomplete="email" 
+                  required class="w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  placeholder="product name"  >
+    
+                  <div >Product Model</div>
+                <input id="email-address" name="email" type="email" autocomplete="email" 
+                  required class="w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  placeholder="product model"  >
+    
+                  <div >Purchased Price</div>
+                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
+                  required class="w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  placeholder="$0.00"  >
+    
+                  <div>Selling Price</div>
+                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
+                  required class="w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  placeholder="$0.00"  >
+    
+                  
+              </div>
+              <div class="justify-center">
+                <div>Product Type</div>
+                <input id="email-address" name="email" type="text" autocomplete="name" 
+                  required class="w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  placeholder="charger"  >
+    
+                  <div>Quantity</div>
+                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
+                  required class="w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  placeholder="1"  >
+    
+                  <div>Date</div>
+                <input id="email-address" name="email" type="date" autocomplete="email" 
+                  required class="w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  placeholder=""  >
+    
+                  <div>Image</div>
+                <input id="email-address" name="email" type="file" autocomplete="email" 
+                  required class="w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  placeholder=""  >
+              </div>
+              </div>
+              <div class="flex justify-center">
+                <button >
+                  <div class="p-2 bg-sky-500 hover:bg-sky-600 rounded justify-center items-center gap-2 flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                  class="w-6 h-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                    <div class="text-white text-base font-semibold font-['Montserrat'] leading-normal">Add New Product</div>
+                </div>
+                </button>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+  </body>
+</html>

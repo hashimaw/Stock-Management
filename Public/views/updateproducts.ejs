@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Products</title>
+    <link rel="stylesheet" href="/updateproductsstyle.css">
+  </head>
+  <body class="bg-[#eeeeee]">
+    
+        <div class="flex mt-2 justify-center bg-[#eeeeee] mb-20 ">    <!--Update Products page-->
+            <div class=" w-11/12">
+
+                <%- include('./partials/adminprofile.ejs') %>
+                
+                <div class="flex justify-center py-5"><!--search box-->
+                    <div class="w-5/12 h-15 bg-white border border-slate-300  justify-center inline-flex">
+                        <div class="h-[55px] justify-start items-center gap-10 inline-flex">
+                            <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
+                                Update Product
+                            </div>
+                            <div class="text-slate-400 text-xl relative font-normal font-['Montserrat'] leading-[30px] ">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 absolute left-2 top-1/2 transform -translate-y-1/2 ">
+                                    <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                                </svg>
+                                <input id="search" name="search" type="search" autocomplete="search" 
+                                    required class="w-64 h-12 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-10 rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-sky-200 placeholder-slate-500 placeholder:text-md placeholder:font-light font-medium text-md text-black" 
+                                    placeholder="Search"  >  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="flex justify-center"><!--inventory table-->
+                    <div class="w-11/12 border border-slate-300 bg-white px-5 py-1">
+                        <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
+                            Products
+                        </div>
+                        <table class="table-auto text-md">
+                            <thead>
+                                <tr class="text-slate-500 pb-40">
+                                    <th></th>
+                                    <th class="w-3/12 text-start">Name</th>
+                                    <th class="w-1/12 text-start">Code</th>
+                                    <th class="w-[15%] text-start">Date</th>
+                                    <th class="w-1/12 text-start">Type</th>
+                                    <th class="w-1/12 text-start">Quantity</th>
+                                    <th class="w-[14%] text-start">Purchased Price</th>
+                                    <th class="w-[12%] text-start">Selling Price</th>
+                                    <th class="w-[12%] text-start">Image</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm font-medium">
+                                <tr>
+                                    <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
+                                    <td>Macbook</td>
+                                    <td>001</td>
+                                    <td>apr-20-2024</td>
+                                    <td>Laptop</td>
+                                    <td>45</td>
+                                    <td>$500</td>
+                                    <td>$700</td>
+                                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
+                                    <td>Macbook</td>
+                                    <td>001</td>
+                                    <td>apr-20-2024</td>
+                                    <td>Laptop</td>
+                                    <td>45</td>
+                                    <td>$500</td>
+                                    <td>$700</td>
+                                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
+                                    <td>Macbook</td>
+                                    <td>001</td>
+                                    <td>apr-20-2024</td>
+                                    <td>Laptop</td>
+                                    <td>45</td>
+                                    <td>$500</td>
+                                    <td>$700</td>
+                                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
+                                    <td>Macbook</td>
+                                    <td>001</td>
+                                    <td>apr-20-2024</td>
+                                    <td>Laptop</td>
+                                    <td>45</td>
+                                    <td>$500</td>
+                                    <td>$700</td>
+                                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="flex justify-center mt-5 mb-20"> <!--add new product form-->
+                    <div class="w-11/12 border border-slate-300 bg-white py-5 px-10">
+                        <div class="flex justify-around text-slate-500 text-lg font-bold font-['Montserrat']">
+                            <div class="justify-center pb-5 ">
+                                <div >Product Name</div>
+                                <input id="email-address" name="email" type="email" autocomplete="email" 
+                                    required class="w-72  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                                    placeholder="product name"  >
+                                <div >Product Model</div>
+                                <input id="email-address" name="email" type="email" autocomplete="email" 
+                                    required class="w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                                    placeholder="product model"  >
+
+                                <div >Purchased Price</div>
+                                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
+                                    required class="w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                                    placeholder="$0.00"  >
+                    
+                            </div>
+                            <div class="justify center">
+                    
+                                <div>Selling Price</div>
+                                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
+                                    required class="w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                                    placeholder="$0.00"  >
+
+                                <div>Product Type</div>
+                                <input id="email-address" name="email" type="text" autocomplete="name" 
+                                    required class="w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                                    placeholder="charger"  >
+
+                                <div>Quantity</div>
+                                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
+                                    required class="w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                                    placeholder="1"  >
+                            </div>
+                            <div class="justify-center">
+                                <div>Date</div>
+                                <input id="email-address" name="email" type="date" autocomplete="email" 
+                                    required class="w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                                    placeholder=""  >
+
+                                <div>Image</div>
+                                <input id="email-address" name="email" type="file" autocomplete="email" 
+                                    required class="w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                                    placeholder=""  >
+
+                                <div class="grid-cols-1 pt-2 ml-12">
+                                    <div class="pb-2">
+                                        <button >
+                                            <div class="p-2 bg-violet-700 hover:bg-violet-800 rounded justify-center items-center gap-2 flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                                                    class="w-6 h-6 text-white">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                </svg>
+                                                <div class="w-28 text-white text-base font-semibold font-['Montserrat'] leading-normal">Update Product</div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button >
+                                            <div class="p-2 bg-pink-600 hover:bg-pink-700 rounded justify-center items-center gap-2 flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                                                    class="w-6 h-6 text-white">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                </svg>
+                                                <div class="w-28 text-white text-base font-semibold font-['Montserrat'] leading-normal">Delete Product</div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+        
