@@ -1,6 +1,5 @@
 const express = require('express');
-const mongodb = require('mongodb');
-
+const path = require('path')
 const uri = "mongodb+srv://hashTheAdmin:HashTheAdmin@inventorymanagement.ekh6lts.mongodb.net/?retryWrites=true&w=majority&appName=InventoryManagement";
 //express app
 const app = express();
@@ -46,3 +45,5 @@ app.get('/updateproducts', (req, res) => {
 app.use((req, res) => {
     res.render('404');
 });
+
+//exports.app = functions.https.onRequest(app);

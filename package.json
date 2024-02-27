@@ -100,13 +100,13 @@
     "yaml": "^2.3.4"
   },
   "scripts": {
-    "build-login": "tailwindcss build input.css -o Public/assets/login.css",
-    "build-additem": "tailwindcss build input.css -o Public/assets/additemstyle.css",
-    "build-addemployee": "tailwindcss build input.css -o Public/assets/addemployeestyle.css",
-    "build-dashboard": "tailwindcss build input.css -o Public/assets/dashboardstyle.css",
-    "build-employeeaccounts": "tailwindcss build input.css -o Public/assets/employeeaccountsstyle.css",
-    "build-transactionhistory": "tailwindcss build input.css -o Public/assets/transactionhistorystyle.css",
-    "build-updateproducts": "tailwindcss build input.css -o Public/assets/updateproductsstyle.css"
+    "build-login": "tailwindcss build input.css -o Public/tailwindtest/loginstyle.css",
+    "build-additem": "tailwindcss build input.css -o Public/tailwindtest/additemstyle.css",
+    "build-addemployee": "tailwindcss build input.css -o Public/tailwindtest/addemployeestyle.css",
+    "build-dashboard": "tailwindcss build input.css -o Public/tailwindtest/dashboardstyle.css",
+    "build-employeeaccounts": "tailwindcss build input.css -o Public/tailwindtest/employeeaccountsstyle.css",
+    "build-transactionhistory": "tailwindcss build input.css -o Public/tailwindtest/transactionhistorystyle.css",
+    "build-updateproducts": "tailwindcss build input.css -o Public/tailwindtest/updateproductsstyle.css"
   },
   "keywords": [],
   "author": "",

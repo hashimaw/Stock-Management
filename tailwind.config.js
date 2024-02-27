@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './public/views/login.html',
-    './Public/assets/login.css',
-    './Public/views/dashboard.html',
-    './Public/assets/dashboardstyle.css',
-    './public/views/addemployee.html',
-    './Public/assets/addemployeestyle.css',
-    './Public/views/additem.html',
-    './Public/assets/additemstyle.css',
-    './public/views/employeeaccounts.html',
-    './Public/assets/employeeaccountsstyle.css',
-    './Public/views/transactionhistory.html',
-    './Public/assets/transactionhistorystyle.css',
-    './public/views/updateproducts.html',
-    './Public/assets/updateproductsstyle.css'
+    './public/tailwindtest/login.html',
+    './Public/tailwindtest/loginstyle.css',
+    './Public/tailwindtest/dashboard.html',
+    './Public/tailwindtest/dashboardstyle.css',
+    './public/tailwindtest/addemployee.html',
+    './Public/tailwindtest/addemployeestyle.css',
+    './Public/tailwindtest/additem.html',
+    './Public/tailwindtest/additemstyle.css',
+    './public/tailwindtest/employeeaccounts.html',
+    './Public/tailwindtest/employeeaccountsstyle.css',
+    './Public/tailwindtest/transactionhistory.html',
+    './Public/tailwindtest/transactionhistorystyle.css',
+    './public/tailwindtest/updateproducts.html',
+    './Public/tailwindtest/updateproductsstyle.css'
   ],
   theme: {
     extend: {},
