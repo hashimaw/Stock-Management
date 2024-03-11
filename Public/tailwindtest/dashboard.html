@@ -4,62 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="dashboardstyle.css">
   </head>
   <body class="bg-[#eeeeee]">
 
 
-<div class="flex mt-2 justify-center ">    
+<div class="flex mt-2 justify-center ">
     <div class=" w-11/12">
 
 
-      <div class="flex justify-between">
-      
-        <div class="text-center"><!--nebcomp title-->
-          <span class="text-black text-xl md:text-2xl font-extrabold ">neb</span><span class="text-sky-500 text-xl md:text-2xl font-extrabold">comp</span>
-          
-          <span class="block md:inline-block text-sky-500 text-xl md:text-2xl font-extrabold">solution</span>
-        </div>
-      
-        <div ><!--admin profile-->
-          <div class="flex justify-end">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class=" self-center w-11 h-11 text-sky-500">
-            <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
-          </svg>
-          <div class="flex-col justify-start items-start gap-1 inline-flex self-center">
-            <div class="text-center text-black text-sm md:text-base font-semibold font-['Montserrat'] leading-none">Nebyu Wendimu</div>
-            <div class="text-center text-slate-500 text-xs font-semibold font-['Open Sans'] leading-3">Admin</div>
-          </div>
-          <button id="menuButton">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-9 h-11 hover:text-sky-600">
-            <path fill-rule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clip-rule="evenodd" />
-          </svg>
-          </button>
-          </div>
-          <div id="menu" class="hidden w-64 z-20 absolute right-[4.1666665%] grid grid-cols-1 justify-items-center border border-slate-300 bg-white py-3.5 gap-2">
-            <button>
-              <div class="p-1 w-56 md:p-2 bg-slate-100 text-black hover:text-white hover:bg-slate-500 rounded gap-2 flex">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-              class="w-6 h-6 ">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
-                <div class=" text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">User Accounts</div>
-            </div>
-            </button>
-            <button>
-              <div class="p-1 w-56 md:p-2 bg-slate-100 text-black hover:text-white hover:bg-slate-500 rounded gap-2 flex">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-              class="w-6 h-6 ">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
-                <div class="text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Transaction History</div>
-            </div>
-            </button>
-          </div>
-          
-        </div>
-        
-      </div>
+      <%- include('./partials/adminprofile.ejs') %>
       
       <div class="flex justify-center py-2 md:py-5"><!--search box-->
 
@@ -78,232 +33,126 @@
               placeholder="Search">
             </div>
             <div class="h-2 lg:w-2 xl:w-[70px]"></div>
-            <div class="flex justify-center gap-1 lg:gap-5">
-               <button>
-              <div class="p-1 md:p-2 bg-sky-500 hover:bg-sky-600 rounded justify-center items-center gap-2 flex">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-              class="w-6 h-6 text-white">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
-                <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Add <span class="absolute invisible md:relative md:visible">New</span> Product</div>
-            </div>
-            </button>
-            <button>
-              <div class="p-1 md:p-2 bg-violet-700 hover:bg-violet-800 rounded justify-center items-center gap-2 flex">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-              class="w-6 h-6 text-white">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
-                <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Update Product</div>
-            </div>
-            </button>
+            <div class="flex justify-center items-center gap-1 lg:gap-5">
+              <a href="/additem">
+                <button>
+                  <div class="p-1 md:p-2 bg-sky-500 hover:bg-sky-600 rounded justify-center items-center gap-2 flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                  class="w-6 h-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                    <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Add <span class="absolute invisible md:relative md:visible">New</span> Product</div>
+                  </div>
+                </button>
+              </a>
+              <a href="/updateproducts">
+                <button>
+                  <div class="p-1 md:p-2 bg-violet-700 hover:bg-violet-800 rounded justify-center items-center gap-2 flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                  class="w-6 h-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                    <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Update Product</div>
+                  </div>
+                </button>
+              </a>
+            
             </div>
            
             
           </div>
         </div>
       </div>
-      
-      <div class="flex justify-center h-96 md:h-72"><!--inventory table-->
+
+      <div class="flex justify-center max-h-96 md:max-h-72"><!--inventory table-->
         <div class="w-full md:w-11/12 overflow-auto  border border-slate-300 bg-white px-5 py-1">
           <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
             Products
           </div>
           <div class="w-[800px] sm:w-[800px] md:w-[1050px] ">
-          <table class=" table-auto text-md">
+          <table id="inventorytable" class=" table-auto text-md">
           <thead>
             <tr class="text-slate-500 pb-40">
               <th></th>
-              <th class="w-3/12 text-start">Name</th>
-              <th class="w-1/12 text-start">Code</th>
+              <th class="w-2/12 text-start">Name</th>
+              <th class="w-2/12 text-start">Model</th>
               <th class="w-[15%] text-start">Date</th>
-              <th class="w-1/12 text-start">Type</th>
+              <th class="w-[12%] text-start">Type</th>
               <th class="w-1/12 text-start">Quantity</th>
               <th class="w-[14%] text-start">Purchased Price</th>
               <th class="w-[12%] text-start">Selling Price</th>
               <th class="w-[12%] text-start">Image</th>
+              <th></th>
             </tr>
           </thead>
-          <tbody class="text-sm font-medium">
-            <tr">
-              <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-              <td>Macbook</td>
-              <td>001</td>
-              <td>apr-20-2024</td>
-              <td>Laptop</td>
-              <td>45</td>
-              <td>$500</td>
-              <td>$700</td>
-              <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-              <td>Macbook</td>
-              <td>001</td>
-              <td>apr-20-2024</td>
-              <td>Laptop</td>
-              <td>45</td>
-              <td>$500</td>
-              <td>$700</td>
-              <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-              <td>Macbook</td>
-              <td>001</td>
-              <td>apr-20-2024</td>
-              <td>Laptop</td>
-              <td>45</td>
-              <td>$500</td>
-              <td>$700</td>
-              <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-              <td>Macbook</td>
-              <td>001</td>
-              <td>apr-20-2024</td>
-              <td>Laptop</td>
-              <td>45</td>
-              <td>$500</td>
-              <td>$700</td>
-              <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-              <td>Macbook</td>
-              <td>001</td>
-              <td>apr-20-2024</td>
-              <td>Laptop</td>
-              <td>45</td>
-              <td>$500</td>
-              <td>$700</td>
-              <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-            </tr>
-          </tbody>
+              <tbody class="text-sm font-medium">
+              <% if (itemlist.length > 0) { %>
+                <% itemlist.forEach(item => { %>
+                  
+                  <tr data-id = "<%= JSON.stringify(item)  %>">
+                    <td ><input type="checkbox" id="addtoselectedtable" name="addtoselectedtable" class="mr-3">
+                    </td>
+                    <td> <%= item.name %> </td>
+                    <td> <%= item.model %> </td>
+                    <td> <%= item.date.toISOString().slice(0,10) %> </td>
+                    <td> <%= item.type %> </td>
+                    <td> <%= item.quantity %> </td>
+                    <td> <%= item.purchasedprice %> </td>
+                    <td> <%= item.sellingprice %> </td>
+                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                    <td class="hidden"><%=item._id%></td>
+                  </tr>
+                <% }) %>
+              <% } else { %>
+                <tr>
+                  <td></td>
+                  <td>No Data To Display</td>
+                </tr>
+                <% } %>
+            </tbody>
+          
         </table>
       </div>
         </div>
       </div>
 
-      <div class="flex justify-center h-72"><!--selected list table-->
+      <form action="/transaction" method="post">
+      <div class="flex justify-center max-h-72"><!--selected list table-->
         <div class="w-full md:w-10/12 overflow-auto border-l border-r border-t  border-slate-300 bg-white px-5 mt-2 md:mt-5 py-1">
           <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
             Selectd List
           </div>
+          
           <div class="w-[800px]  md:w-[950px] ">
-          <table class=" table-auto text-md">
+          <table id="selectedItemsTable" class=" table-auto text-md">
           <thead>
             <tr class="text-slate-500 pb-40">
               <th></th>
-              <th class="w-[23%] text-start">Name</th>
-              <th class="w-1/12 text-start">Code</th>
-              <th class="w-[15%] text-start">Comment</th>
-              <th class="w-1/12 text-start">Type</th>
+              <th class="w-2/12 text-start">Name</th>
+              <th class="w-[14%] text-start">Model</th>
+              <th class="w-[12%] text-start">Type</th>
+              <th class="w-[12%] text-start">Image</th>
+              <th class="w-[13%] text-start">Comment</th>
               <th class="w-1/12 text-start">Quantity</th>
               <th class="w-[14%] text-start">Selling Price</th>
-              <th class="w-[12%] text-start">Image</th>
               <th class="w-1/12 text-start">Total </th>
+              <th></th>
             </tr>
           </thead>
-          <tbody class="text-sm font-medium">
-            <tr">
-              <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-              <td>Macbook</td>
-              <td>001</td>
-              <td>
-                <input id="search" name="search" type="search" autocomplete="search" 
-                required class="focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-                placeholder="beloved customer"  >  </td>
-              <td>Laptop</td>
-              <td>
-                <input id="search" name="search" type="number" autocomplete="search" 
-                required class="w-14 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-                placeholder="1"  >  
-              </td>
-              <td>
-                <input id="search" name="search" type="number" autocomplete="search" 
-                required class="w-24 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-                placeholder="$400"  >  </td>
-              <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-              <td>$800</td>
-            </tr>
-            <tr">
-            <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-            <td>Macbook</td>
-            <td>001</td>
-            <td>
-              <input id="search" name="search" type="search" autocomplete="search" 
-              required class="focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-              placeholder="beloved customer"  >  </td>
-            <td>Laptop</td>
-            <td>
-              <input id="search" name="search" type="number" autocomplete="search" 
-              required class="w-14 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-              placeholder="1"  >  
-            </td>
-            <td>
-              <input id="search" name="search" type="number" autocomplete="search" 
-              required class="w-24 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-              placeholder="$400"  >  </td>
-            <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-            <td>$800</td>
-          </tr>
-          <tr">
-          <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-          <td>Macbook</td>
-          <td>001</td>
-          <td>
-            <input id="search" name="search" type="search" autocomplete="search" 
-            required class="focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-            placeholder="beloved customer"  >  </td>
-          <td>Laptop</td>
-          <td>
-            <input id="search" name="search" type="number" autocomplete="search" 
-            required class="w-14 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-            placeholder="1"  >  
-          </td>
-          <td>
-            <input id="search" name="search" type="number" autocomplete="search" 
-            required class="w-24 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-            placeholder="$400"  >  
-          </td>
-          <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-          <td>$800</td>
-        </tr>
-        <tr">
-        <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-        <td>Macbook</td>
-        <td>001</td>
-        <td>
-          <input id="search" name="search" type="search" autocomplete="search" 
-          required class="focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-          placeholder="beloved customer"  >  </td>
-        <td>Laptop</td>
-        <td>
-          <input id="search" name="search" type="number" autocomplete="search" 
-          required class="w-14 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-          placeholder="1"  >  
-        </td>
-        <td>
-          <input id="search" name="search" type="number" autocomplete="search" 
-          required class="w-24 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-          placeholder="$400"  >  
-        </td>
-        <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-        <td>$800</td>
-      </tr>
+          <tbody id="selectedItemsTableBody" class="text-sm font-medium">
+          
           </tbody>
         </table>
         </div>
+      
         </div>
       </div>
       <div class="flex justify-center mb-20">
         <div class="w-10/12 border-l border-r border-b border-slate-300 bg-white md:pl-8">
           <hr class="w-full h-px mx-auto bg-gray-100 border-0 rounded  dark:bg-gray-400">
         <div class="flex justify-end my-2 ">
-          <button >
-            <div class="p-1 md:p-2 bg-pink-600 hover:bg-pink-700 rounded justify-center items-center gap-2 flex">
+          <button id="placeorderbutton" class="enabled:bg-pink-600 disabled:bg-gray-400  enabled:hover:bg-pink-700 rounded">
+            <div class="p-1 md:p-2   justify-center items-center gap-2 flex">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
             class="w-6 h-6 text-white">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -311,29 +160,238 @@
               <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Place Order</div>
           </div>
           </button>
-          <div class="mx-2 md:mx-10 font-medium text-lg">
-            $1200
+          <div id="Sum" class="mx-2 md:mx-10 font-medium text-lg">
+            $0
           </div>
         </div>
       </div>
       </div>
+      </form>
       
 
     </div>
   </div>
-    <script>
-    var menuButton = document.querySelector('#menuButton');
-    var menu = document.querySelector('#menu');
+  
+<script>
 
-    menuButton.addEventListener('click', function() {
-      menu.classList.toggle('hidden');
-    });
+  // Initialize an empty array to store the Data we collect from the inventory table that are checked
+let checkedIds = new Array;
 
-    window.addEventListener('click', function(event) {
-      if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
-        menu.classList.add('hidden');
+
+
+//a function to add new row to the selected items table using backticks
+function addRowToSelectedItemsTable(newRowData) {
+  var table = document.getElementById('selectedItemsTableBody');
+  var row = document.createElement('tr');
+  row.setAttribute('data-object', newRowData._id); 
+  row.innerHTML = `<td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3" checked></td>
+                  <td> ${newRowData.name} <input class="hidden" name="name" value="${newRowData.name}"></td>
+                  <td> ${newRowData.model} <input class="hidden" name="model" value="${newRowData.model}"></td>
+                  <td> ${newRowData.type} <input class="hidden" name="type" value="${newRowData.type}"></td>
+                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                  <td>
+                    <input id="comment" name="comment" type="text" autocomplete="name" value="..beloved" required
+                    class="focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-slate-500 placeholder:text-md placeholder:font-normal font-medium text-md text-black" 
+                    placeholder="...beloved customer"  >  
+                  </td>
+                  <td>
+                    <input id="quantity-${newRowData._id}" name="quantity" type="number" autocomplete="cc-number" min="1" max="100" value="0" oninput="validateInputQuantity(this, ${newRowData.quantity})" required 
+                    class="w-14 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
+                    placeholder="1"  >  
+                  </td>
+                  <td>
+                    <input id="sellingprice" name="sellingprice" type="number" autocomplete="cc-number" value="${newRowData.sellingprice}" oninput="validateInputSellingprice(this, ${newRowData.sellingprice} )" required 
+                    class="w-24 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
+                    placeholder = ${newRowData.sellingprice}>  
+                  </td>
+                  <td></td>
+                  <td class="hidden">${newRowData._id}<input class="hidden" name="id" value="${newRowData._id}"></td>`
+          
+
+          table.appendChild(row);
+}
+
+Sum();
+
+
+  // Function to remove row from selected items table
+  function removeRowFromSelectedItemsTable(removableRowId) {
+    var table = document.getElementById('selectedItemsTable');
+    for (var i = 0; i < table.rows.length; i++) {
+      if (table.rows[i].cells[9].textContent === removableRowId) {
+        table.deleteRow(i);
       }
+    }
+  }
+
+
+
+
+
+  //function to uncheck the inventory tables checkboxes after we unselect the item from selected items table
+  function uncheckcheckboxfromInventory(uncheckedrowId) {
+    var table = document.getElementById('inventorytable');
+    for (var i = 0; i < table.rows.length; i++) {
+      if (table.rows[i].cells[9].textContent === uncheckedrowId) {
+        const checkbox = table.rows[i].cells[0].querySelector('input[type="checkbox"]');
+          if (checkbox) {
+            checkbox.checked = false; // Uncheck the checkbox
+          }
+          break;
+      }
+    }
+  }
+
+
+
+
+
+
+// Get all checkboxes within the table
+let inventorycheckboxes = document.querySelectorAll('#inventorytable input[type="checkbox"]');
+// Add a change event listener to each checkbox
+inventorycheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+            // Get the ID of the row (assuming it's stored in a data attribute)
+            let rowId = this.closest('tr').dataset.id;
+
+            // If the checkbox is checked, add the ID to the array 
+            // parse the data that we get from the row
+            // call the addToSelectedItemsTable and pass the parsed data as an argument
+            // store at selectediemcheckboxes that are dynamically generated checkboxes in selecteditemstable using queryselector right after adding row function is called
+            // call the selecteditemcheckboxe function for generated checkboxes as it starts to watch for changes
+            if(this.checked) {
+              
+                checkedIds.push(rowId);
+                let newRowData = JSON.parse(rowId);
+                addRowToSelectedItemsTable(newRowData);
+                let selecteditemcheckboxes = document.querySelectorAll('#selectedItemsTable input[type="checkbox"]');
+                selecteditemcheckboxe(selecteditemcheckboxes);
+                let quantityInput = document.querySelectorAll('[id^="quantity-"]');
+                let sellingpriceInput = document.querySelectorAll('#sellingprice');
+                sellingPriceUpdated(sellingpriceInput);
+                quantityUpdated(quantityInput);
+                Sum();
+            } 
+            // If the checkbox is unchecked, remove the ID from the array
+            // parse the data that we get from the row
+            // call the removeRowFromSelectedItemsTable function to remove an item as it's unchecked at inventory table
+            else {
+              
+                checkedIds = checkedIds.filter(id => id !== rowId);
+                let removableRowId = JSON.parse(rowId);
+                removeRowFromSelectedItemsTable(removableRowId._id);
+                Sum();
+            }
+        });
     });
-  </script>
+
+
+
+
+// a function to watch checkboxes of newly added rows at selected items table     
+function selecteditemcheckboxe(selecteditemcheckboxes){
+// Add a change event listener to each checkbox
+  selecteditemcheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        // Get the object of the row (assuming it's stored in a data attribute) and the data we get here is the id of specific item
+        let uncheckedrowId = this.closest('tr').dataset.object;
+        // here we find the array that we store at ceckedIds using the _id of the item we receive above and store it in tobepoped var 
+        let tobepoped = new Array;
+        checkedIds.forEach(item =>{
+          tobepoped.push(JSON.parse(item)) 
+        })
+        tobepoped = tobepoped.filter((item) => item._id === uncheckedrowId);
+        tobepoped = JSON.stringify(tobepoped[0]);
+      
+        // If the checkbox is checked, nothing to do
+        if(this.checked) {
+        } 
+        // If the checkbox is unchecked, remove the ID from the array
+        // call uncheckcheckboxfromInventory function to uncheck dropped item from inventory table
+        // call removeRowFromSelectedItemsTable function to remove item from selected items table
+        else {
+          
+            checkedIds = checkedIds.filter(id => id !== tobepoped);
+            uncheckcheckboxfromInventory(uncheckedrowId);
+            removeRowFromSelectedItemsTable(uncheckedrowId);
+            Sum();
+        }
+    });
+});
+}
+
+
+
+// function to show the sum of prcie
+function Sum(){
+  var table = document.getElementById('selectedItemsTable');
+  const mySum = document.getElementById('Sum');
+  var placeorderbutton = document.getElementById('placeorderbutton');
+  placeorderdiv = document.getElementById('placeorderdiv');
+  let total=0;
+    for (var i = 1; i < table.rows.length; i++) {
+      table.rows[i].cells[8].textContent = table.rows[i].cells[7].querySelector('input').value * table.rows[i].cells[6].querySelector('input').value;
+       total = total +  parseFloat(table.rows[i].cells[8].textContent);
+    }
+    if (total==0){
+      placeorderbutton.disabled = true;
+    }else{
+      placeorderbutton.disabled = false;
+    }
+  mySum.innerHTML = '$'+total;
+}
+
+
+
+// function to watch for quantity input field 
+function quantityUpdated(quantityInput){
+  quantityInput.forEach(inputElement => {
+    inputElement.addEventListener('input', function() {
+      Sum();
+    });
+  })
+}
+
+
+
+// function to watch for sellingprice input field 
+function sellingPriceUpdated(sellingpriceInput){
+  sellingpriceInput.forEach(inputElement => {
+    inputElement.addEventListener('input', function() {
+      Sum();
+    });
+  })
+}
+
+
+
+// function to validate quantity input field 
+function validateInputQuantity(inputElement, availableQuantity) {
+        const value = parseInt(inputElement.value);
+        if (value < 1) {
+            inputElement.value = 1;
+        } else if (value > availableQuantity) {
+            inputElement.value = availableQuantity;
+        }
+    }
+
+
+
+// function to validate sellingprice input field 
+function validateInputSellingprice(inputElement, sellingPrice) {
+    const value = parseInt(inputElement.value);
+    if (value < 1) {
+        inputElement.value = sellingPrice;
+    } else if (value > 2*sellingPrice) {
+        inputElement.value = 2*sellingPrice;
+    }
+}
+
+
+</script>
+
+<script src="/togglemenu.js"></script>
+
   </body>
-</html> 
+</html>

@@ -19,51 +19,51 @@
               </div>
             </div>
         </div>
-          
-        <div class="flex justify-center mb-20"> <!--add new product form-->
+        <form action="/additem" method="POST"> <!--add new product form-->
+          <div class="flex justify-center mb-20"> 
           <div class="w-full md:w-11/12 border border-slate-300 bg-white py-5 p-4 md:px-5 xl:px-10">
             <div class="md:flex justify-around text-slate-500 text-lg font-bold font-['Montserrat']">
                 <div class="">
                   <div >Product Name</div>
-                  <input id="email-address" name="email" type="email" autocomplete="email" 
-                    required class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  <input id="name" name="name" type="text" autocomplete="name" required 
+                    class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
                     placeholder="product name"  >
       
                     <div >Product Model</div>
-                  <input id="email-address" name="email" type="email" autocomplete="email" 
-                    required class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  <input id="model" name="model" type="text" autocomplete="name" required 
+                    class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
                     placeholder="product model"  >
       
                     <div >Purchased Price</div>
-                  <input id="email-address" name="email" type="number" autocomplete="cc-number" 
-                    required class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  <input id="purchasedprice" name="purchasedprice" type="number" autocomplete="cc-number" required 
+                    class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
                     placeholder="$0.00"  >
       
                     <div>Selling Price</div>
-                  <input id="email-address" name="email" type="number" autocomplete="cc-number" 
-                    required class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  <input id="sellingprice" name="sellingprice" type="number" autocomplete="cc-number" required 
+                    class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
                     placeholder="$0.00"  > 
                 </div>
 
                 <div class="">
                   <div>Product Type</div>
-                  <input id="email-address" name="email" type="text" autocomplete="name" 
-                    required class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  <input id="type" name="type" type="text" autocomplete="name" required 
+                    class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
                     placeholder="charger"  >
       
                     <div>Quantity</div>
-                  <input id="email-address" name="email" type="number" autocomplete="cc-number" 
-                    required class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  <input id="quantity" name="quantity" type="number" autocomplete="cc-number" required 
+                    class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
                     placeholder="1"  >
       
                     <div>Date</div>
-                  <input id="email-address" name="email" type="date" autocomplete="email" 
-                    required class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  <input id="date" name="date" type="date" required 
+                    class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
                     placeholder=""  >
       
                     <div>Image</div>
-                  <input id="email-address" name="email" type="file" autocomplete="email" 
-                    required class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                  <input id="image" name="image" type="file"
+                    class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
                     placeholder=""  >
                 </div>
             </div>
@@ -79,8 +79,9 @@
               </button>
             </div>
           </div>
-        </div>
-          
+          </div>
+        </form>
+        
         </div>
       </div>
       <script src="/togglemenu.js"></script>

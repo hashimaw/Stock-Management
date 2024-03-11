@@ -12,22 +12,42 @@
         <div class=" w-11/12">
     
           <%- include('./partials/adminprofile.ejs') %>
-    
-          <div class="flex justify-center py-5 "><!--date selector-->
-            <div class="flex gap-2 bg-white border border-slate-300 py-2 px-3 ">
-                <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
+
+          <form id="myForm" action="transactionhistorybydate" method="post">
+            <div class="flex justify-center py-5 "><!--date selector-->
+            <div class="grid justify-items-center md:flex gap-2 bg-white border border-slate-300 py-2 px-3 ">
+                <div class="text-black text-center self-center text-xl font-bold font-['Montserrat'] ">
                   Transaction History
                 </div>
-                <button type="date" class="">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" hover:text-sky-500 w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                  </svg>
-                </button>
+                  <div class="flex gap-2">
+                    <div class="border border-slate-200">
+                      <p class="text-black font-medium text-center">start</p>
+                      <input type="date" id="startdate" name="startdate" required class="" >
+                    </div>
+                    
+                    <div class="border border-slate-200">
+                      <p class="text-black font-medium text-center">end</p>
+                      <input type="date" id="enddate" name="enddate" required class="" >
+                    </div>
+                  </div>
+                  <button >
+                    <div class="p-1 md:p-2 bg-sky-500 hover:bg-sky-600 rounded justify-center items-center gap-2 flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                    class="w-6 h-6 text-white">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                      <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Query Transaction</div>
+                    </div>
+                  </button>
+                
               </div>
             </div>
-      
+          </form>
+          
+            <% var profittotal = 0; %>
+            <% var soldtotal = 0; %>
                 <div class="flex justify-center  "><!--transaction table-->
-            <div class="w-full lg:w-11/12 overflow-auto  border border-slate-300 bg-white px-5 py-1">
+            <div class="w-full h-96 lg:w-11/12 overflow-auto border-l border-r border-t  border-slate-300 bg-white px-5 py-1">
               <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
                 Transactions
               </div>
@@ -36,97 +56,72 @@
               <table class="table-auto text-md">
               <thead>
                 <tr class="text-slate-500 pb-40">
-                  <th class="w-[15%] md:w-[20%] text-start">Name</th>
-                  <th class="w-[7%] text-start">Code</th>
+                  <th class="w-[13%] text-start">Name</th>
+                  <th class="w-[13%] text-start">model</th>
+                  <th class="w-[10%] text-start">Comment</th>
                   <th class="w-[10%] text-start">Date</th>
-                  <th class="w-1/12 text-start">Type</th>
+                  <th class="w-[10%] text-start">Type</th>
                   <th class="w-1/12 text-start">Quantity</th>
-                  <th class="w-[14%] text-start">Purchased Price</th>
-                  <th class="w-[12%] text-start">Selling Price</th>
-                  <th class="w-[10%] text-start">Sold Price</th>
-                  <th class="w-[11%] text-start">Profit</th>
+                  <th class="w-[13%] text-start">Purchased Price</th>
+                  <th class="w-[11%] text-start">Selling Price</th>
+                  <th class="w-[9%] text-start">Sold Price</th>
+                  <th class="w-[8%] text-start">Profit</th>
                   <th class="w-[12%] text-start">Image</th>
                 </tr>
               </thead>
               <tbody class="text-sm font-medium">
-                <tr>
-                  <td>Macbook</td>
-                  <td>001</td>
-                  <td>apr-20-2024</td>
-                  <td>Laptop</td>
-                  <td>45</td>
-                  <td>$500</td>
-                  <td>$700</td>
-                  <td>$800</td>
-                  <td>$100</td>
-                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                </tr>
-                <tr>
-                  <td>Macbook</td>
-                  <td>001</td>
-                  <td>apr-20-2024</td>
-                  <td>Laptop</td>
-                  <td>45</td>
-                  <td>$500</td>
-                  <td>$700</td>
-                  <td>$800</td>
-                  <td>$100</td>
-                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                </tr>
-                <tr>
-                  <td>Macbook</td>
-                  <td>001</td>
-                  <td>apr-20-2024</td>
-                  <td>Laptop</td>
-                  <td>45</td>
-                  <td>$500</td>
-                  <td>$700</td>
-                  <td>$800</td>
-                  <td>$100</td>
-                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                </tr>
-                <tr>
-                  <td>Macbook</td>
-                  <td>001</td>
-                  <td>apr-20-2024</td>
-                  <td>Laptop</td>
-                  <td>45</td>
-                  <td>$500</td>
-                  <td>$700</td>
-                  <td>$800</td>
-                  <td>$100</td>
-                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>Total For The Selected Day(s)</td>
-                  <td class="font-bold">Sold Total</td>
-                  <td class="font-bold">Profit Total</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="text-lg font-bold">$5000</td>
-                  <td class="text-lg font-bold">$900</td>
-                  <td></td>
-                </tr>
+                <% if (itemlist.length > 0) { %>
+                  <% itemlist.forEach(item => { %>
+                    <% profittotal += item.soldprice-item.purchasedprice %>
+                    <% soldtotal += item.soldprice %>
+                    <tr data-id = "<%= JSON.stringify(item)  %>">
+                      <td> <%= item.name %> </td>
+                      <td> <%= item.model %> </td>
+                      <td> <%= item.comment %> </td>
+                      <td> <%= item.updatedAt.toISOString().slice(0,10) %>  </td>
+                      <td> <%= item.type %> </td>
+                      <td> <%= item.quantity %> </td>
+                      <td> <%= item.purchasedprice %> </td>
+                      <td> <%= item.sellingprice %> </td>
+                      <td> <%= item.soldprice %> </td>
+                      <td> <%= item.soldprice - item.purchasedprice %> </td>
+                      <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                      <td class="hidden"><%=item._id%></td>
+                    </tr>
+                  <% }) %>
+                <% } else { %>
+                  <tr>
+                    <td></td>
+                    <td>No Data To Display</td>
+                  </tr>
+                  <% } %>
               </tbody>
             </table>
           </div>
             </div>
           </div>
-
+          <div class="flex justify-center mb-20">
+            <div class="w-11/12 border-l border-r border-b border-slate-300 bg-white md:pl-8">
+              <hr class="w-full h-px mx-auto bg-gray-100 border-0 rounded  dark:bg-gray-400">
+            <div class="flex justify-end my-2 ">
+              <div class="w-40 font-normal text-md">
+                Total for the selected day(s).
+              </div>
+              <div class="mx-2 md:mx-4 font-medium md:font-semibold text-md lg:text-lg">
+                Sold Total
+                <div >
+                  $<%= soldtotal %>
+                </div>
+              </div>
+              <div class="mr-3 md:mr-10 font-medium md:font-semibold text-md lg:text-lg">
+                Profit Total
+                <div>
+                  $<%= profittotal %>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
       <script src="/togglemenu.js"></script>

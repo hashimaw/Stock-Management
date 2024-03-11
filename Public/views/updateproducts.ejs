@@ -31,156 +31,141 @@
                     </div>
                 </div>
             
-                <div class="flex justify-center h-max-96 md:h-max-72"><!--inventory table-->
+                <div class="flex justify-center max-h-96 md:max-h-72"><!--inventory table-->
                     <div class="w-full md:w-11/12 overflow-auto  border border-slate-300 bg-white px-5 py-1">
-                        <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
-                            Products
-                        </div>
-                        <div class="w-[800px] sm:w-[800px] md:w-[1050px] ">
-                            <table class="table-auto text-md">
-                            <thead>
-                                <tr class="text-slate-500 pb-40">
-                                    <th></th>
-                                    <th class="w-3/12 text-start">Name</th>
-                                    <th class="w-1/12 text-start">Code</th>
-                                    <th class="w-[15%] text-start">Date</th>
-                                    <th class="w-1/12 text-start">Type</th>
-                                    <th class="w-1/12 text-start">Quantity</th>
-                                    <th class="w-[14%] text-start">Purchased Price</th>
-                                    <th class="w-[12%] text-start">Selling Price</th>
-                                    <th class="w-[12%] text-start">Image</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm font-medium">
-                                <tr>
-                                    <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-                                    <td>Macbook</td>
-                                    <td>001</td>
-                                    <td>apr-20-2024</td>
-                                    <td>Laptop</td>
-                                    <td>45</td>
-                                    <td>$500</td>
-                                    <td>$700</td>
-                                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-                                    <td>Macbook</td>
-                                    <td>001</td>
-                                    <td>apr-20-2024</td>
-                                    <td>Laptop</td>
-                                    <td>45</td>
-                                    <td>$500</td>
-                                    <td>$700</td>
-                                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-                                    <td>Macbook</td>
-                                    <td>001</td>
-                                    <td>apr-20-2024</td>
-                                    <td>Laptop</td>
-                                    <td>45</td>
-                                    <td>$500</td>
-                                    <td>$700</td>
-                                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3"></td>
-                                    <td>Macbook</td>
-                                    <td>001</td>
-                                    <td>apr-20-2024</td>
-                                    <td>Laptop</td>
-                                    <td>45</td>
-                                    <td>$500</td>
-                                    <td>$700</td>
-                                    <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                        
+                      <div class="text-black text-xl font-bold font-['Montserrat'] leading-[30px]">
+                        Products
+                      </div>
+                      <div class="w-[800px] sm:w-[800px] md:w-[1050px] ">
+                      <table id="inventorytable" class=" table-auto text-md">
+                      <thead>
+                        <tr class="text-slate-500 pb-40">
+                          <th></th>
+                          <th class="w-2/12 text-start">Name</th>
+                          <th class="w-2/12 text-start">Model</th>
+                          <th class="w-[15%] text-start">Date</th>
+                          <th class="w-[12%] text-start">Type</th>
+                          <th class="w-1/12 text-start">Quantity</th>
+                          <th class="w-[14%] text-start">Purchased Price</th>
+                          <th class="w-[12%] text-start">Selling Price</th>
+                          <th class="w-[12%] text-start">Image</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                          <tbody class="text-sm font-medium">
+                          <% if (itemlist.length > 0) { %>
+                            <% itemlist.forEach(item => { %>
+                              
+                              <tr data-id = "<%= JSON.stringify(item)  %>">
+                                <td ><input type="radio" id="addtoselectedtable" name="addtoselectedtable" class="mr-3">
+                                </td>
+                                <td> <%= item.name %> </td>
+                                <td> <%= item.model %> </td>
+                                <td> <%= item.date.toISOString().slice(0,10) %> </td>
+                                <td> <%= item.type %> </td>
+                                <td> <%= item.quantity %> </td>
+                                <td> <%= item.purchasedprice %> </td>
+                                <td> <%= item.sellingprice %> </td>
+                                <td><img class="w-14" src="assets/download.jfif" alt=""></td>
+                                <td class="hidden"><%=item._id%></td>
+                              </tr>
+                            <% }) %>
+                          <% } else { %>
+                            <tr>
+                              <td></td>
+                              <td>No Data To Display</td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                      
+                    </table>
+                  </div>
                     </div>
+                  </div>
+            
+
+    <form id="form" action="" method="post">
+        <div class="md:flex justify-center mt-2 md:mt-5 mb-20"> <!--add new product form-->
+            <div class="w-full md:w-11/12 border border-slate-300 bg-white p-3 md:py-5 md:px-10">
+                <div class="md:flex justify-around gap-5 text-slate-500 text-lg font-bold font-['Montserrat']">
+                    
+                <div class="justify-center ">
+                <div >Product Name</div>
+                <input id="name" name="name" type="text" autocomplete="name" required 
+                    class="w-full xl:w-72  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                    placeholder="product name"  >
+                <div >Product Model</div>
+                <input id="model" name="model" type="text" autocomplete="name" required 
+                    class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                    placeholder="product model"  >
+                <div >Purchased Price</div>
+                <input id="purchasedprice" name="purchasedprice" type="number" autocomplete="cc-number" required 
+                class="w-full xl:w-72  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                placeholder="$0.00"  >
+
                 </div>
+                <div class="justify center">
 
+                <div>Selling Price</div>
+                <input id="sellingprice" name="sellingprice" type="number" autocomplete="cc-number" required 
+                    class="w-full xl:w-72  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                    placeholder="$0.00"  > 
 
-                <div class="md:flex justify-center mt-2 md:mt-5 mb-20"> <!--add new product form-->
-                    <div class="w-full md:w-11/12 border border-slate-300 bg-white p-3 md:py-5 md:px-10">
-                        <div class="md:flex justify-around gap-5 text-slate-500 text-lg font-bold font-['Montserrat']">
-                            <div class="justify-center ">
-                                <div >Product Name</div>
-                                <input id="email-address" name="email" type="email" autocomplete="email" 
-                                    required class="w-full xl:w-72  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                                    placeholder="product name"  >
-                                <div >Product Model</div>
-                                <input id="email-address" name="email" type="email" autocomplete="email" 
-                                    required class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                                    placeholder="product model"  >
+                <div>Product Type</div>
+                <input id="type" name="type" type="text" autocomplete="name" required 
+                    class="w-full xl:w-72  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                    placeholder="charger"  >
 
-                                <div >Purchased Price</div>
-                                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
-                                    required class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                                    placeholder="$0.00"  >
-                    
-                            </div>
-                            <div class="justify center">
-                    
-                                <div>Selling Price</div>
-                                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
-                                    required class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                                    placeholder="$0.00"  >
+                <div>Quantity</div>
+                <input id="quantity" name="quantity" type="number" autocomplete="cc-number" required 
+                    class="w-full xl:w-72  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                    placeholder="1"  >
+                </div>
+                <div class="justify-center">
+                <div>Date</div>
+                <input id="date" name="date" type="date" required 
+                    class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                    placeholder=""  >
 
-                                <div>Product Type</div>
-                                <input id="email-address" name="email" type="text" autocomplete="name" 
-                                    required class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                                    placeholder="charger"  >
+                <div>Image</div>
+                <input id="image" name="image" type="file"
+                    class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                    placeholder=""  >
+                    <input class="hidden" id="id" name="id" value="">
 
-                                <div>Quantity</div>
-                                <input id="email-address" name="email" type="number" autocomplete="cc-number" 
-                                    required class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                                    placeholder="1"  >
-                            </div>
-                            <div class="justify-center">
-                                <div>Date</div>
-                                <input id="email-address" name="email" type="date" autocomplete="email" 
-                                    required class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                                    placeholder=""  >
-
-                                <div>Image</div>
-                                <input id="email-address" name="email" type="file" autocomplete="email" 
-                                    required class="w-full xl:w-72 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                                    placeholder=""  >
-
-                                <div class="flex md:flex-col py-2 gap-2 justify-center md:ml-10 ">
-                                    <div>
-                                        <button >
-                                            <div class="p-1 md:p-2 bg-violet-700 hover:bg-violet-800 rounded justify-center items-center gap-2 flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                                                    class="w-6 h-6 text-white">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                </svg>
-                                                <div class="md:w-32 text-center text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Update Product</div>
-                                            </div>
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <button >
-                                            <div class="p-1 md:p-2 bg-pink-600 hover:bg-pink-700 rounded justify-center items-center gap-2 flex">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                                                    class="w-6 h-6 text-white">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                </svg>
-                                                <div class="md:w-32 text-center text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Delete Product</div>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex md:flex-col py-2 gap-2 justify-center md:ml-10 ">
+                <div>
+                <button id="postbutton" class="enabled:bg-violet-700 enabled:hover:bg-violet-800 disabled:bg-gray-400 rounded">
+                <div class="p-1 md:p-2 justify-center items-center gap-2 flex">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                    class="w-6 h-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <div class="md:w-32 text-center text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Update Product</div>
+                </div>
+                </button>
+                </div>
+                <div>
+                <button id="deletebutton" class="enabled:bg-pink-600 enabled:hover:bg-pink-700 disabled:bg-gray-400 rounded">
+                <div class="p-1 md:p-2 justify-center items-center gap-2 flex">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                    class="w-6 h-6 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <div class="md:w-32 text-center text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Delete Product</div>
+                </div>
+                </button>
+                </div>
+                </div>
+                </div>
+                
                 </div>
             </div>
         </div>
+    </form>
+    </div>
+    </div>     
+        <script src="/updateproductsscript.js"></script>
         <script src="/togglemenu.js"></script>
     </body>
 </html>
