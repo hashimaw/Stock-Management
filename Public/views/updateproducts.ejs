@@ -20,12 +20,16 @@
                                 Update Product
                             </div>
                             <div class="text-slate-400 text-xl relative font-normal font-['Montserrat'] leading-[30px] ">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 absolute left-2 top-1/2 transform -translate-y-1/2 ">
-                                    <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
-                                </svg>
-                                <input id="search" name="search" type="search" autocomplete="search" 
-                                    required class="w-full md:w-52 lg:w-64 xl:w-72 h-12 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-10 rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-sky-200 placeholder-slate-500 placeholder:text-md placeholder:font-light font-medium text-md text-black" 
-                                    placeholder="Search"  >  
+                                <form action="/updateproducts/search" method="post">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 absolute left-2 top-1/2 transform -translate-y-1/2 ">
+                                        <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                                    </svg>
+                    
+                                  <input id="search" name="search" type="text" autocomplete="text" 
+                                  required class="w-full md:w-52 lg:w-64 xl:w-72 h-12 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-10 rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-sky-200 placeholder-slate-500 placeholder:text-md placeholder:font-light font-medium text-md text-black" 
+                                  placeholder="Search">
+                                  </form>
                             </div>
                         </div>
                     </div>

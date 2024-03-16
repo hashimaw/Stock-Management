@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('form');
     var postButton = document.getElementById('postbutton');
     var deleteButton = document.getElementById('deletebutton');
 
