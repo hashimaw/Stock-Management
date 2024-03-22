@@ -1,6 +1,7 @@
 const express = require('express');
 const transactionhistoryrouter = express.Router();
 const SoldItems = require('../models/sold items');
+const { requireAuth } = require('../middleware/authmiddleware');
 
 transactionhistoryrouter.get('/transactionhistory', (req, res) => {
     SoldItems.find().sort({ updatedAt: -1 })
@@ -14,7 +15,7 @@ transactionhistoryrouter.get('/transactionhistory', (req, res) => {
 
 
 
-transactionhistoryrouter.post('/transactionhistorybydate', (req, res) => {
+transactionhistoryrouter.post('/transactionhistorybydate', requireAuth, (req, res) => {
     SoldItems.find({
         createdAt: {
             $gte: new Date(new Date(req.body.startdate).setHours(0, 0, 0)),

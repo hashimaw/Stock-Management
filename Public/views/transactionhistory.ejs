@@ -32,10 +32,9 @@
                   </div>
                   <button >
                     <div class="p-1 md:p-2 bg-sky-500 hover:bg-sky-600 rounded justify-center items-center gap-2 flex">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                    class="w-6 h-6 text-white">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                      </svg>                      
                       <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Query Transaction</div>
                     </div>
                   </button>
@@ -63,8 +62,8 @@
                   <th class="w-[10%] text-start">Type</th>
                   <th class="w-1/12 text-start">Quantity</th>
                   <th class="w-[13%] text-start">Purchased Price</th>
-                  <th class="w-[11%] text-start">Selling Price</th>
                   <th class="w-[9%] text-start">Sold Price</th>
+                  <th class="w-[8%] text-start">Total</th>
                   <th class="w-[8%] text-start">Profit</th>
                   <th class="w-[12%] text-start">Image</th>
                 </tr>
@@ -72,8 +71,8 @@
               <tbody class="text-sm font-medium">
                 <% if (itemlist.length > 0) { %>
                   <% itemlist.forEach(item => { %>
-                    <% profittotal += item.soldprice-item.purchasedprice %>
-                    <% soldtotal += item.soldprice %>
+                    <% profittotal += (item.soldprice-item.purchasedprice) * item.quantity %>
+                    <% soldtotal += item.soldprice * item.quantity %>
                     <tr data-id = "<%= JSON.stringify(item)  %>">
                       <td> <%= item.name %> </td>
                       <td> <%= item.model %> </td>
@@ -82,9 +81,9 @@
                       <td> <%= item.type %> </td>
                       <td> <%= item.quantity %> </td>
                       <td> <%= item.purchasedprice %> </td>
-                      <td> <%= item.sellingprice %> </td>
                       <td> <%= item.soldprice %> </td>
-                      <td> <%= item.soldprice - item.purchasedprice %> </td>
+                      <td> <%= item.soldprice * item.quantity %> </td>
+                      <td> <%= (item.soldprice - item.purchasedprice) * item.quantity %> </td>
                       <td><img class="w-14" src="assets/download.jfif" alt=""></td>
                       <td class="hidden"><%=item._id%></td>
                     </tr>

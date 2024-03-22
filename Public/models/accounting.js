@@ -7,5 +7,5 @@ const accountingschema = new mongoose.Schema({
     actualprofit: Number,
     },{timestamps:true });
 
-    const Accounting = mongoose.model('accounting', accountingschema);
+    const Accounting = mongoose.model('Accounting', accountingschema);
     module.exports = Accounting;

@@ -14,7 +14,9 @@ module.exports = {
     './Public/tailwindtest/transactionhistory.html',
     './Public/tailwindtest/transactionhistorystyle.css',
     './public/tailwindtest/updateproducts.html',
-    './Public/tailwindtest/updateproductsstyle.css'
+    './Public/tailwindtest/updateproductsstyle.css',
+    './public/tailwindtest/signup.html',
+    './Public/tailwindtest/signupstyle.css'
   ],
   theme: {
     extend: {},

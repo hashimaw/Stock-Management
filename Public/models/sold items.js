@@ -13,5 +13,5 @@ const solditemsschema = new mongoose.Schema({
     id: String,
     },{timestamps:true });
 
-    const SoldItems = mongoose.model('Sold Items', solditemsschema);
+    const SoldItems = mongoose.model('Sold Item', solditemsschema);
     module.exports = SoldItems;

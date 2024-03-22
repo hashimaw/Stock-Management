@@ -10,5 +10,5 @@ const itemsschema = new mongoose.Schema({
     sellingprice: Number,
     },{timestamps:true });
 
-    const Items = mongoose.model('Items', itemsschema);
+    const Items = mongoose.model('Item', itemsschema);
     module.exports = Items;

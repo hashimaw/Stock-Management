@@ -3,36 +3,22 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hash Stock Management</title>
+    <title>NebComp Solution Stock Management</title>
     <link rel="stylesheet" href="loginstyle.css">
   </head>
   <body class="bg-[#eeeeee]">
     
     <img loading="lazy" srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/90f032264cc9d5d3279472ffdcb6a8910a9e326cb79a437731fd3be8616551f2?apiKey=23bcc27c70014343a599768cad970b39&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/90f032264cc9d5d3279472ffdcb6a8910a9e326cb79a437731fd3be8616551f2?apiKey=23bcc27c70014343a599768cad970b39&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/90f032264cc9d5d3279472ffdcb6a8910a9e326cb79a437731fd3be8616551f2?apiKey=23bcc27c70014343a599768cad970b39&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/90f032264cc9d5d3279472ffdcb6a8910a9e326cb79a437731fd3be8616551f2?apiKey=23bcc27c70014343a599768cad970b39&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/90f032264cc9d5d3279472ffdcb6a8910a9e326cb79a437731fd3be8616551f2?apiKey=23bcc27c70014343a599768cad970b39&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/90f032264cc9d5d3279472ffdcb6a8910a9e326cb79a437731fd3be8616551f2?apiKey=23bcc27c70014343a599768cad970b39&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/90f032264cc9d5d3279472ffdcb6a8910a9e326cb79a437731fd3be8616551f2?apiKey=23bcc27c70014343a599768cad970b39&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/90f032264cc9d5d3279472ffdcb6a8910a9e326cb79a437731fd3be8616551f2?apiKey=23bcc27c70014343a599768cad970b39&"class="z-0 object-cover absolute inset-0 size-full" />
-    <div class=" h-screen grid grid-cols-1 content-center">
-      <div class="place-self-center justify-center mt-[-200px] w-11/12 mx-10 md:w-[650px] p-1 z-10 text-sm font-normal text-white text-center border border-slate-300 bg-slate-100 bg-opacity-60 rounded-lg">
-        Don’t let inventory management be a hassle. Try
-        <span class="text-sky-600 text-base font-black">
-          Hash Stock Management
-        </span> 
-        Web Application today and take the first step towards efficient and effective inventory management!
-        <br><span class="italic">Test Email and Password</span>
-        
-        <span class="italic"><br>Email:</span> hashimabdrehman@gmail.com
-        <span class="italic"><br>Password:</span> hashimtest123
-       
-        
-      </div>
+    <div class="h-screen grid grid-cols-1 content-center">
+      
       <div class="place-self-center w-11/12 md:w-96 z-10 text-md font-medium leading-9 text-white">
         <form>
-          <input type="hidden" name="remember" value="true">
           <div ><!--UserName field-->
-            <h1>Email</h1>
+            <h2>User Name</h2>
           
               <input id="email-address" name="email" type="email" autocomplete="email" 
               required class="w-full focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-100 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-              placeholder="email"  >
-              <div class="text-rose-500 md:text-center text-base" id="emailerror"></div>
+              placeholder="User Name"  >
           
           </div>
 
@@ -42,55 +28,21 @@
             <input id="password" name="password" type="password" autocomplete="current-password" 
               required class="w-full focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-100 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
               placeholder="Password">
-              <div class="text-rose-500 md:text-center text-base " id="passworderror"></div>
+
           </div>
-         <!-- <div class="flex mt-3 items-center justify-between"><!--forgot and remember me checkbox
+          <div class="flex mt-3 items-center justify-between"><!--forgot and remember me checkbox-->
             <div>
                 <input type="checkbox" id="remember-me" name="remember-me" class="mr-2">
                 <label for="remember-me" class="text-slate-400">Remember Me</label>
             </div>
             <a href="#" class="text-sm text-purple-500 hover:underline">Forgot Password?</a>
-        </div>-->
+          </div>
           <div class="flex justify-center"><!--login button-->
-                      <button class="mt-5 text-white py-1 bg-sky-500 rounded w-[200px]">Login</button>
+                      <button class="mt-5 text-white py-1 bg-sky-500 rounded w-[200px]">SignUp</button>
           </div>
         </form>
       </div>
     </div>
-    <script>
-      const form = document.querySelector('form');
-      const emailError = document.querySelector('#emailerror');
-      const passwordError = document.querySelector('#passworderror');
-      
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        //reset error values
-        emailError.textContent = '';
-        passwordError.textContent = '';
-
-        //get the values
-        const email = form.email.value;
-        const password = form.password.value;
-        try {
-          const res = await fetch('/login', {
-            method: 'POST',
-            body: JSON.stringify({ email, password }),
-            headers: {'Content-Type': 'application/json'}
-          })
-          const data = await res.json();
-          if (data.errors){
-            emailError.textContent = data.errors.email
-            passwordError.textContent = data.errors.password
-          }
-          if (data.user){
-            location.assign('/');
-          }
-        } catch (err) {
-          console.log(err);
-        }
-      })
-    </script>
   </body>
 </html>
