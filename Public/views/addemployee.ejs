@@ -20,139 +20,289 @@
                 </div>
               </div>
           </div>
-         <form >
-          <div class="flex justify-center mb-20"> <!--add new employee form-->
-            <div class="w-full md:w-11/12 border border-slate-300 bg-white py-5 p-4 md:px-5 xl:px-10">
-              <div class="md:flex justify-around text-slate-500 text-lg font-bold font-['Montserrat']">
-                <div class="">
-                <div >First Name</div>
-                <input id="firstname" name="firstname" type="text" autocomplete="name"  required
-                  class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                  placeholder="first name"  >
-    
-                  <div >Last Name</div>
-                <input id="lastname" name="lastname" type="text" autocomplete="name"  required
-                  class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                  placeholder="last name"  >
-    
-                  <div >Email</div>
-                <input id="email" name="email" type="email" autocomplete="email"   required
-                  class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                  placeholder="lugi@gmail.com"  >
-                  <div class="text-rose-500 md:text-center text-base md:text-lg" id="emailerror"></div>
+          <% if (updateuser !== null ) { %>
 
-                  <div>Phone No.</div>
-                <input id="phone" name="phone" type="number" autocomplete="cc-number" required
-                  class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                  placeholder="+251--------"  >
-                  <div class="text-rose-500 md:text-center text-base md:text-lg" id="phoneerror"></div>
-
-                  <div>Age</div>
-                <input id="age" name="age" type="number" autocomplete="cc-number"  required
-                  class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                  placeholder="0"  >
+            <form id="update" >
+              <div class="flex justify-center mb-20"> <!--add new employee form-->
+                <div class="w-full md:w-11/12 border border-slate-300 bg-white py-5 p-4 md:px-5 xl:px-10">
+                  <div class="md:flex justify-around text-slate-500 text-lg font-bold font-['Montserrat']">
+                    <div class="">
+                      <input id="id" type="text" class="hidden" value="<%=updateuser._id%>">
+                    <div >First Name</div>
+                    <input id="firstname" name="firstname" type="text" autocomplete="name"  required value="<%=updateuser.firstname%>"
+                      class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                      placeholder="first name"  >
+        
+                      <div >Last Name</div>
+                    <input id="lastname" name="lastname" type="text" autocomplete="name"  required value="<%=updateuser.lastname%>"
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                      placeholder="last name"  >
+        
+                      <div >Email</div>
+                    <input id="email" name="email" type="email" autocomplete="email"   required value="<%=updateuser.email%>"
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                      placeholder="lugi@gmail.com"  >
+                      <div class="text-rose-500 md:text-center text-base md:text-lg" id="emailerrorforupdate"></div>
     
+                      <div>Phone No.</div>
+                    <input id="phone" name="phone" type="number" autocomplete="cc-number" required value="<%=updateuser.phone%>"
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                      placeholder="+251--------"  >
+                      <div class="text-rose-500 md:text-center text-base md:text-lg" id="phoneerrorforupdate"></div>
+    
+                      <div>Age</div>
+                    <input id="age" name="age" type="number" autocomplete="cc-number"  required value="<%=updateuser.age%>"
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                      placeholder="0"  >
+        
+                      
+                  </div>
+                  <div class="justify-center">
+                    <div>Address</div>
+                    <input id="address" name="address" type="text" autocomplete="name"  required value="<%=updateuser.address%>"
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                      placeholder="addis ababa"  >
+    
+    
+                    <div>Gender</div>
+                    <select id="gender" name="gender" required value="<%=updateuser.gender%>"
+                    class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" >
+                      <option value="">Select...</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+    
+                    <div>Role</div>
+                    <select id="role" name="role" required value="<%=updateuser.role%>"
+                    class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" >
+                      <option value="">Select...</option>
+                      <option value="sales">Sales</option>
+                      <option value="technician">Technician</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                   
+        
+                      <div>Scanned ID</div>
+                    <input id="scannedid" name="scannedid" type="file" 
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                      placeholder=""  >
+    
+                      <div>Password</div>
+                    <input id="password" name="password" type="password"  required
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                      placeholder="***"  >
+                      <div class="text-rose-500 md:text-center text-base md:text-lg" id="passworderrorforupdate"></div>
+    
+                  </div>
+                  </div>
+                  <div class="flex justify-center py-4">
+                    <button >
+                      <div class="p-1 md:p-2 bg-violet-700 hover:bg-violet-800 rounded justify-center items-center gap-2 flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                        class="w-6 h-6 text-white">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Update Account</div>
+                    </div>
+                    </button>
+                  </div>
                   
-              </div>
-              <div class="justify-center">
-                <div>Address</div>
-                <input id="address" name="address" type="text" autocomplete="name"  required
-                  class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                  placeholder="addis ababa"  >
-
-
-                <div>Gender</div>
-                <select id="gender" name="gender" required
-                class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" >
-                  <option value="">Select...</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-
-                <div>Role</div>
-                <select id="role" name="role" required
-                class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" >
-                  <option value="">Select...</option>
-                  <option value="sales">Sales</option>
-                  <option value="technician">Technician</option>
-                  <option value="admin">Admin</option>
-                </select>
-               
-    
-                  <div>Scanned ID</div>
-                <input id="scannedid" name="scannedid" type="file" 
-                  class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                  placeholder=""  >
-
-                  <div>Password</div>
-                <input id="password" name="password" type="password"  required
-                  class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
-                  placeholder="***"  >
-                  <div class="text-rose-500 md:text-center text-base md:text-lg" id="passworderror"></div>
-
-              </div>
-              </div>
-              <div class="flex justify-center py-4">
-                <button >
-                  <div class="p-1 md:p-2 bg-sky-500 hover:bg-sky-600 rounded justify-center items-center gap-2 flex">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                  class="w-6 h-6 text-white">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                    <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Add New Employee Account</div>
                 </div>
-                </button>
               </div>
-              
-            </div>
-          </div>
-        </form>
+            </form>
+
+            <% } else { %>
+
+              <form >
+                <div class="flex justify-center mb-20"> <!--add new employee form-->
+                  <div class="w-full md:w-11/12 border border-slate-300 bg-white py-5 p-4 md:px-5 xl:px-10">
+                    <div class="md:flex justify-around text-slate-500 text-lg font-bold font-['Montserrat']">
+                      <div class="">
+                      <div >First Name</div>
+                      <input id="firstname" name="firstname" type="text" autocomplete="name"  required
+                        class="w-full md:w-72 lg:w-96  focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                        placeholder="first name"  >
+          
+                        <div >Last Name</div>
+                      <input id="lastname" name="lastname" type="text" autocomplete="name"  required
+                        class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                        placeholder="last name"  >
+          
+                        <div >Email</div>
+                      <input id="email" name="email" type="email" autocomplete="email"   required
+                        class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                        placeholder="lugi@gmail.com"  >
+                        <div class="text-rose-500 md:text-center text-base md:text-lg" id="emailerror"></div>
+      
+                        <div>Phone No.</div>
+                      <input id="phone" name="phone" type="number" autocomplete="cc-number" required
+                        class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                        placeholder="+251--------"  >
+                        <div class="text-rose-500 md:text-center text-base md:text-lg" id="phoneerror"></div>
+      
+                        <div>Age</div>
+                      <input id="age" name="age" type="number" autocomplete="cc-number"  required
+                        class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                        placeholder="0"  >
+          
+                        
+                    </div>
+                    <div class="justify-center">
+                      <div>Address</div>
+                      <input id="address" name="address" type="text" autocomplete="name"  required
+                        class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                        placeholder="addis ababa"  >
+      
+      
+                      <div>Gender</div>
+                      <select id="gender" name="gender" required
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" >
+                        <option value="">Select...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+      
+                      <div>Role</div>
+                      <select id="role" name="role" required
+                      class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" >
+                        <option value="">Select...</option>
+                        <option value="sales">Sales</option>
+                        <option value="technician">Technician</option>
+                        <option value="admin">Admin</option>
+                      </select>
+                     
+          
+                        <div>Scanned ID</div>
+                      <input id="scannedid" name="scannedid" type="file" 
+                        class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                        placeholder=""  >
+      
+                        <div>Password</div>
+                      <input id="password" name="password" type="password"  required
+                        class="w-full md:w-72 lg:w-96 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-5 py-3 mt-2  rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-zinc-300 placeholder-slate-500 placeholder:text-sm placeholder:font-normal font-medium text-md text-black" 
+                        placeholder="***"  >
+                        <div class="text-rose-500 md:text-center text-base md:text-lg" id="passworderror"></div>
+      
+                    </div>
+                    </div>
+                    <div class="flex justify-center py-4">
+                      <button >
+                        <div class="p-1 md:p-2 bg-sky-500 hover:bg-sky-600 rounded justify-center items-center gap-2 flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                        class="w-6 h-6 text-white">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                          <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Add New Employee Account</div>
+                      </div>
+                      </button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form>
+
+            <%}%>
+         
           
         </div>
       </div>
       <script src="/togglemenu.js"></script>
-      <script>
-        const form = document.querySelector('form');
-        const emailError = document.querySelector('#emailerror');
-        const passwordError = document.querySelector('#passworderror');
-        const phoneError = document.querySelector('#phoneerror');
-        
-
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
+      <% if (updateuser !== null ) { %>
+        <script>
+          const updateform = document.querySelector('#update');
+          const emailErrorForUpdate = document.querySelector('#emailerrorforupdate');
+          const passwordErrorForUpdate = document.querySelector('#passworderrorforupdate');
+          const phoneErrorForUpdate = document.querySelector('#phoneerrorforupdate');
           
-          //reset error values
-          emailError.textContent = '';
-          passwordError.textContent = '';
-          phoneError.textContent = '';
-
-          //get the values
-          const firstname = form.firstname.value;
-          const lastname = form.lastname.value;
-          const email = form.email.value;
-          const phone = form.phone.value;
-          const age = form.age.value;
-          const address = form.address.value;
-          const gender = form.gender.value;
-          const role = form.role.value;
-         //const scanndeId = form.scanndeid.value;
-          const password = form.password.value;
-          try {
-            const res = await fetch('/addemployee', {
-              method: 'POST',
-              body: JSON.stringify({firstname, lastname, email, phone, age, address, gender, role, password }),
-              headers: {'Content-Type': 'application/json'}
-            })
-            const data = await res.json();
-            if (data.errors){
-              emailError.textContent = data.errors.email
-              passwordError.textContent = data.errors.password
-              phoneError.textContent = data.errors.phone
+        
+          updateform.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            //reset error values
+            emailErrorForUpdate.textContent = '';
+            passwordErrorForUpdate.textContent = '';
+            phoneErrorForUpdate.textContent = '';
+        
+            //get the values
+            const id = updateform.id.value;
+            const firstname = updateform.firstname.value;
+            const lastname = updateform.lastname.value;
+            const email = updateform.email.value;
+            const phone = updateform.phone.value;
+            const age = updateform.age.value;
+            const address = updateform.address.value;
+            const gender = updateform.gender.value;
+            const role = updateform.role.value;
+           //const scanndeId = updateform.scanndeid.value;
+            const password = updateform.password.value;
+            try {
+              const res = await fetch('/addemployee/updateuser/' + id, {
+                method: 'POST',
+                body: JSON.stringify({firstname, lastname, email, phone, age, address, gender, role, password }),
+                headers: {'Content-Type': 'application/json'}
+              })
+              const data = await res.json();
+              if (data.errors){
+                emailErrorForUpdate.textContent = data.errors.email
+                passwordErrorForUpdate.textContent = data.errors.password
+                phoneErrorForUpdate.textContent = data.errors.phone
+              }
+              if (data.user){
+              location.assign('/employeeaccounts');
             }
-          } catch (err) {
-            console.log(err);
-          }
-        })
-      </script>
+            } catch (err) {
+              console.log(err);
+            }
+          })
+        </script>
+      <% } else { %>
+        <script>
+          const form = document.querySelector('form');
+          const emailError = document.querySelector('#emailerror');
+          const passwordError = document.querySelector('#passworderror');
+          const phoneError = document.querySelector('#phoneerror');
+          
+  
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            //reset error values
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            phoneError.textContent = '';
+  
+            //get the values
+            const firstname = form.firstname.value;
+            const lastname = form.lastname.value;
+            const email = form.email.value;
+            const phone = form.phone.value;
+            const age = form.age.value;
+            const address = form.address.value;
+            const gender = form.gender.value;
+            const role = form.role.value;
+           //const scanndeId = form.scanndeid.value;
+            const password = form.password.value;
+            try {
+              const res = await fetch('/addemployee', {
+                method: 'POST',
+                body: JSON.stringify({firstname, lastname, email, phone, age, address, gender, role, password }),
+                headers: {'Content-Type': 'application/json'}
+              })
+              const data = await res.json();
+              if (data.errors){
+                emailError.textContent = data.errors.email
+                passwordError.textContent = data.errors.password
+                phoneError.textContent = data.errors.phone
+              }
+              if (data.user){
+              location.assign('/employeeaccounts');
+            }
+            } catch (err) {
+              console.log(err);
+            }
+          })
+        </script>
+
+<% } %>
   </body>
 </html>

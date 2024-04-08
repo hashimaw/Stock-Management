@@ -67,21 +67,6 @@ authrouter.get('/logout', (req, res) => {
     res.redirect('/login');
 })
 
-authrouter.post('/addemployee', requireAuth, (req, res) => {
 
-    const user = new User(req.body)
-    user.save()
-    .then((result) =>{
-        const token = createToken(result._id);
-        res.cookie('jwt', token, {httpOnly: true, maxAge: maxAge * 1000});
-        console.log(result);
-        res.status(201).json({ user: result._id });
-    })
-    .catch((err) =>{
-        const errors = handleErrors(err);
-        res.status(400).json({ errors });
-        console.log(errors);
-    });
-})
 
 module.exports = authrouter;
