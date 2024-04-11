@@ -7,7 +7,8 @@ let checkedIds = new Array;
 function addRowToSelectedItemsTable(newRowData) {
   var table = document.getElementById('selectedItemsTableBody');
   var row = document.createElement('tr');
-  row.setAttribute('data-object', newRowData._id); 
+  row.className = "hover:bg-slate-100 p-3 mx-2 rounded-xl";
+  row.setAttribute('data-object', newRowData._id, ); 
   row.innerHTML = `<td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3" checked></td>
                   <td> ${newRowData.name} <input class="hidden" name="name" value="${newRowData.name}"></td>
                   <td> ${newRowData.model} <input class="hidden" name="model" value="${newRowData.model}"></td>

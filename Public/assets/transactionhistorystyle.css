@@ -644,6 +644,18 @@ tr td {
   left: 0.75rem;
 }
 
+.left-32 {
+  left: 8rem;
+}
+
+.left-64 {
+  left: 16rem;
+}
+
+.left-96 {
+  left: 24rem;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -672,6 +684,10 @@ tr td {
   right: 2rem;
 }
 
+.right-96 {
+  right: 24rem;
+}
+
 .right-\[4\.1666665\%\] {
   right: 4.1666665%;
 }
@@ -686,6 +702,14 @@ tr td {
 
 .top-1\/2 {
   top: 50%;
+}
+
+.top-28 {
+  top: 7rem;
+}
+
+.top-32 {
+  top: 8rem;
 }
 
 .top-4 {
@@ -730,6 +754,11 @@ tr td {
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .mx-auto {
@@ -901,6 +930,10 @@ tr td {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mt-\[-200px\] {
+  margin-top: -200px;
 }
 
 .block {
@@ -1180,10 +1213,6 @@ tr td {
   width: 10%;
 }
 
-.w-\[11\%\] {
-  width: 11%;
-}
-
 .w-\[12\%\] {
   width: 12%;
 }
@@ -1198,10 +1227,6 @@ tr td {
 
 .w-\[15\%\] {
   width: 15%;
-}
-
-.w-\[150px\] {
-  width: 150px;
 }
 
 .w-\[200px\] {
@@ -1562,6 +1587,10 @@ tr td {
 
 .rounded-none {
   border-radius: 0px;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .rounded-b-md {
@@ -2136,6 +2165,10 @@ tr td {
   line-height: 1rem;
 }
 
+.font-black {
+  font-weight: 900;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2235,14 +2268,49 @@ tr td {
   color: rgb(38 38 38 / var(--tw-text-opacity));
 }
 
+.text-pink-500 {
+  --tw-text-opacity: 1;
+  color: rgb(236 72 153 / var(--tw-text-opacity));
+}
+
+.text-pink-700 {
+  --tw-text-opacity: 1;
+  color: rgb(190 24 93 / var(--tw-text-opacity));
+}
+
 .text-purple-500 {
   --tw-text-opacity: 1;
   color: rgb(168 85 247 / var(--tw-text-opacity));
 }
 
+.text-rose-500 {
+  --tw-text-opacity: 1;
+  color: rgb(244 63 94 / var(--tw-text-opacity));
+}
+
+.text-rose-700 {
+  --tw-text-opacity: 1;
+  color: rgb(190 18 60 / var(--tw-text-opacity));
+}
+
 .text-sky-500 {
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+
+.text-sky-600 {
+  --tw-text-opacity: 1;
+  color: rgb(2 132 199 / var(--tw-text-opacity));
+}
+
+.text-sky-700 {
+  --tw-text-opacity: 1;
+  color: rgb(3 105 161 / var(--tw-text-opacity));
+}
+
+.text-sky-800 {
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
 }
 
 .text-slate-200 {
@@ -2277,16 +2345,6 @@ tr td {
 
 .underline {
   text-decoration-line: underline;
-}
-
-.placeholder-black::-moz-placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-black::placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-placeholder-opacity));
 }
 
 .placeholder-slate-500::-moz-placeholder {
@@ -2419,14 +2477,6 @@ tr td {
   font-weight: 300;
 }
 
-.placeholder\:font-medium::-moz-placeholder {
-  font-weight: 500;
-}
-
-.placeholder\:font-medium::placeholder {
-  font-weight: 500;
-}
-
 .placeholder\:font-normal::-moz-placeholder {
   font-weight: 400;
 }
@@ -2445,6 +2495,11 @@ tr td {
   background-color: rgb(2 132 199 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-slate-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-slate-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(100 116 139 / var(--tw-bg-opacity));
@@ -2453,11 +2508,6 @@ tr td {
 .hover\:bg-violet-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(91 33 182 / var(--tw-bg-opacity));
-}
-
-.hover\:text-sky-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(14 165 233 / var(--tw-text-opacity));
 }
 
 .hover\:text-sky-600:hover {
@@ -2575,6 +2625,10 @@ tr td {
     width: 91.666667%;
   }
 
+  .md\:w-28 {
+    width: 7rem;
+  }
+
   .md\:w-32 {
     width: 8rem;
   }
@@ -2583,12 +2637,12 @@ tr td {
     width: 10rem;
   }
 
-  .md\:w-44 {
-    width: 11rem;
-  }
-
   .md\:w-52 {
     width: 13rem;
+  }
+
+  .md\:w-56 {
+    width: 14rem;
   }
 
   .md\:w-72 {
@@ -2607,8 +2661,8 @@ tr td {
     width: 1070px;
   }
 
-  .md\:w-\[170px\] {
-    width: 170px;
+  .md\:w-\[650px\] {
+    width: 650px;
   }
 
   .md\:w-\[950px\] {
@@ -2625,10 +2679,6 @@ tr td {
 
   .md\:gap-2 {
     gap: 0.5rem;
-  }
-
-  .md\:self-center {
-    align-self: center;
   }
 
   .md\:p-2 {
@@ -2654,6 +2704,10 @@ tr td {
     padding-left: 2rem;
   }
 
+  .md\:text-center {
+    text-align: center;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -2662,6 +2716,11 @@ tr td {
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   .md\:font-semibold {

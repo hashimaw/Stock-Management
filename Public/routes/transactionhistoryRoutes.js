@@ -1,11 +1,11 @@
 const express = require('express');
 const transactionhistoryrouter = express.Router();
 const SoldItems = require('../models/sold items');
-const { requireAuth } = require('../middleware/authmiddleware');
+const { requireAuth, checkUser } = require('../middleware/authmiddleware');
 const { async } = require('postcss-js');
 
-transactionhistoryrouter.get('/transactionhistory', (req, res) => {
-    SoldItems.find().sort({ updatedAt: -1 })
+transactionhistoryrouter.get('/transactionhistory', requireAuth, async (req, res) => {
+    await SoldItems.find().sort({ updatedAt: -1 })
     .then((result) => {
         res.render('transactionhistory', {itemlist: result});
     })

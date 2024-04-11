@@ -25,12 +25,18 @@
             </div>
             <div class=" xl:w-16"></div>
             <div class="text-slate-400 text-xl flex justify-center relative font-normal font-['Montserrat'] leading-[30px] ">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 absolute left-2 top-1/2 transform -translate-y-1/2 ">
+              <form action="/dashboard/search" method="post">
+               
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 absolute left-2 top-1/2 transform -translate-y-1/2 ">
                 <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
               </svg>
-              <input id="search" name="search" type="search" autocomplete="search" 
+              
+              
+              <input id="search" name="search" type="text" autocomplete="text" 
               required class="w-full md:w-52 lg:w-64 xl:w-72 h-12 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 px-10 rounded-lg border border-solid shadow-sm bg-white bg-opacity-60 border-sky-200 placeholder-slate-500 placeholder:text-md placeholder:font-light font-medium text-md text-black" 
               placeholder="Search">
+              </form>
+              
             </div>
             <div class="h-2 lg:w-2 xl:w-[70px]"></div>
             <div class="flex justify-center items-center gap-1 lg:gap-5">
@@ -58,8 +64,7 @@
               </a>
             
             </div>
-           
-            
+        
           </div>
         </div>
       </div>
@@ -89,7 +94,7 @@
               <% if (itemlist.length > 0) { %>
                 <% itemlist.forEach(item => { %>
                   
-                  <tr data-id = "<%= JSON.stringify(item)  %>">
+                  <tr data-id = "<%= JSON.stringify(item)  %>" class="hover:bg-slate-100 p-3 mx-2 rounded-xl">
                     <td ><input type="checkbox" id="addtoselectedtable" name="addtoselectedtable" class="mr-3">
                     </td>
                     <td> <%= item.name %> </td>
@@ -152,11 +157,12 @@
           <hr class="w-full h-px mx-auto bg-gray-100 border-0 rounded  dark:bg-gray-400">
         <div class="flex justify-end my-2 ">
           <button id="placeorderbutton" class="enabled:bg-pink-600 disabled:bg-gray-400  enabled:hover:bg-pink-700 rounded">
-            <div class="p-1 md:p-2   justify-center items-center gap-2 flex">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-            class="w-6 h-6 text-white">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            <div class="p-1 md:p-2  justify-center items-center gap-2 flex">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0 1 18 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3 1.5 1.5 3-3.75" />
             </svg>
+            
               <div class="text-white text-base font-medium md:font-semibold font-['Montserrat'] leading-normal">Place Order</div>
           </div>
           </button>
@@ -172,224 +178,7 @@
     </div>
   </div>
   
-<script>
-
-  // Initialize an empty array to store the Data we collect from the inventory table that are checked
-let checkedIds = new Array;
-
-
-
-//a function to add new row to the selected items table using backticks
-function addRowToSelectedItemsTable(newRowData) {
-  var table = document.getElementById('selectedItemsTableBody');
-  var row = document.createElement('tr');
-  row.setAttribute('data-object', newRowData._id); 
-  row.innerHTML = `<td><input type="checkbox" id="remember-me" name="remember-me" class="mr-3" checked></td>
-                  <td> ${newRowData.name} <input class="hidden" name="name" value="${newRowData.name}"></td>
-                  <td> ${newRowData.model} <input class="hidden" name="model" value="${newRowData.model}"></td>
-                  <td> ${newRowData.type} <input class="hidden" name="type" value="${newRowData.type}"></td>
-                  <td><img class="w-14" src="assets/download.jfif" alt=""></td>
-                  <td>
-                    <input id="comment" name="comment" type="text" autocomplete="name" value="..beloved" required
-                    class="focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-slate-500 placeholder:text-md placeholder:font-normal font-medium text-md text-black" 
-                    placeholder="...beloved customer"  >  
-                  </td>
-                  <td>
-                    <input id="quantity-${newRowData._id}" name="quantity" type="number" autocomplete="cc-number" min="1" max="100" value="0" oninput="validateInputQuantity(this, ${newRowData.quantity})" required 
-                    class="w-14 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-                    placeholder="1"  >  
-                  </td>
-                  <td>
-                    <input id="sellingprice" name="sellingprice" type="number" autocomplete="cc-number" value="${newRowData.sellingprice}" oninput="validateInputSellingprice(this, ${newRowData.sellingprice} )" required 
-                    class="w-24 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 rounded-lg border border-solid shadow-sm bg-opacity-60 border-slate-200 placeholder-black placeholder:text-md placeholder:font-medium font-medium text-md text-black" 
-                    placeholder = ${newRowData.sellingprice}>  
-                  </td>
-                  <td></td>
-                  <td class="hidden">${newRowData._id}<input class="hidden" name="id" value="${newRowData._id}"></td>`
-          
-
-          table.appendChild(row);
-}
-
-Sum();
-
-
-  // Function to remove row from selected items table
-  function removeRowFromSelectedItemsTable(removableRowId) {
-    var table = document.getElementById('selectedItemsTable');
-    for (var i = 0; i < table.rows.length; i++) {
-      if (table.rows[i].cells[9].textContent === removableRowId) {
-        table.deleteRow(i);
-      }
-    }
-  }
-
-
-
-
-
-  //function to uncheck the inventory tables checkboxes after we unselect the item from selected items table
-  function uncheckcheckboxfromInventory(uncheckedrowId) {
-    var table = document.getElementById('inventorytable');
-    for (var i = 0; i < table.rows.length; i++) {
-      if (table.rows[i].cells[9].textContent === uncheckedrowId) {
-        const checkbox = table.rows[i].cells[0].querySelector('input[type="checkbox"]');
-          if (checkbox) {
-            checkbox.checked = false; // Uncheck the checkbox
-          }
-          break;
-      }
-    }
-  }
-
-
-
-
-
-
-// Get all checkboxes within the table
-let inventorycheckboxes = document.querySelectorAll('#inventorytable input[type="checkbox"]');
-// Add a change event listener to each checkbox
-inventorycheckboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', function() {
-            // Get the ID of the row (assuming it's stored in a data attribute)
-            let rowId = this.closest('tr').dataset.id;
-
-            // If the checkbox is checked, add the ID to the array 
-            // parse the data that we get from the row
-            // call the addToSelectedItemsTable and pass the parsed data as an argument
-            // store at selectediemcheckboxes that are dynamically generated checkboxes in selecteditemstable using queryselector right after adding row function is called
-            // call the selecteditemcheckboxe function for generated checkboxes as it starts to watch for changes
-            if(this.checked) {
-              
-                checkedIds.push(rowId);
-                let newRowData = JSON.parse(rowId);
-                addRowToSelectedItemsTable(newRowData);
-                let selecteditemcheckboxes = document.querySelectorAll('#selectedItemsTable input[type="checkbox"]');
-                selecteditemcheckboxe(selecteditemcheckboxes);
-                let quantityInput = document.querySelectorAll('[id^="quantity-"]');
-                let sellingpriceInput = document.querySelectorAll('#sellingprice');
-                sellingPriceUpdated(sellingpriceInput);
-                quantityUpdated(quantityInput);
-                Sum();
-            } 
-            // If the checkbox is unchecked, remove the ID from the array
-            // parse the data that we get from the row
-            // call the removeRowFromSelectedItemsTable function to remove an item as it's unchecked at inventory table
-            else {
-              
-                checkedIds = checkedIds.filter(id => id !== rowId);
-                let removableRowId = JSON.parse(rowId);
-                removeRowFromSelectedItemsTable(removableRowId._id);
-                Sum();
-            }
-        });
-    });
-
-
-
-
-// a function to watch checkboxes of newly added rows at selected items table     
-function selecteditemcheckboxe(selecteditemcheckboxes){
-// Add a change event listener to each checkbox
-  selecteditemcheckboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-        // Get the object of the row (assuming it's stored in a data attribute) and the data we get here is the id of specific item
-        let uncheckedrowId = this.closest('tr').dataset.object;
-        // here we find the array that we store at ceckedIds using the _id of the item we receive above and store it in tobepoped var 
-        let tobepoped = new Array;
-        checkedIds.forEach(item =>{
-          tobepoped.push(JSON.parse(item)) 
-        })
-        tobepoped = tobepoped.filter((item) => item._id === uncheckedrowId);
-        tobepoped = JSON.stringify(tobepoped[0]);
-      
-        // If the checkbox is checked, nothing to do
-        if(this.checked) {
-        } 
-        // If the checkbox is unchecked, remove the ID from the array
-        // call uncheckcheckboxfromInventory function to uncheck dropped item from inventory table
-        // call removeRowFromSelectedItemsTable function to remove item from selected items table
-        else {
-          
-            checkedIds = checkedIds.filter(id => id !== tobepoped);
-            uncheckcheckboxfromInventory(uncheckedrowId);
-            removeRowFromSelectedItemsTable(uncheckedrowId);
-            Sum();
-        }
-    });
-});
-}
-
-
-
-// function to show the sum of prcie
-function Sum(){
-  var table = document.getElementById('selectedItemsTable');
-  const mySum = document.getElementById('Sum');
-  var placeorderbutton = document.getElementById('placeorderbutton');
-  placeorderdiv = document.getElementById('placeorderdiv');
-  let total=0;
-    for (var i = 1; i < table.rows.length; i++) {
-      table.rows[i].cells[8].textContent = table.rows[i].cells[7].querySelector('input').value * table.rows[i].cells[6].querySelector('input').value;
-       total = total +  parseFloat(table.rows[i].cells[8].textContent);
-    }
-    if (total==0){
-      placeorderbutton.disabled = true;
-    }else{
-      placeorderbutton.disabled = false;
-    }
-  mySum.innerHTML = '$'+total;
-}
-
-
-
-// function to watch for quantity input field 
-function quantityUpdated(quantityInput){
-  quantityInput.forEach(inputElement => {
-    inputElement.addEventListener('input', function() {
-      Sum();
-    });
-  })
-}
-
-
-
-// function to watch for sellingprice input field 
-function sellingPriceUpdated(sellingpriceInput){
-  sellingpriceInput.forEach(inputElement => {
-    inputElement.addEventListener('input', function() {
-      Sum();
-    });
-  })
-}
-
-
-
-// function to validate quantity input field 
-function validateInputQuantity(inputElement, availableQuantity) {
-        const value = parseInt(inputElement.value);
-        if (value < 1) {
-            inputElement.value = 1;
-        } else if (value > availableQuantity) {
-            inputElement.value = availableQuantity;
-        }
-    }
-
-
-
-// function to validate sellingprice input field 
-function validateInputSellingprice(inputElement, sellingPrice) {
-    const value = parseInt(inputElement.value);
-    if (value < 1) {
-        inputElement.value = sellingPrice;
-    } else if (value > 2*sellingPrice) {
-        inputElement.value = 2*sellingPrice;
-    }
-}
-
-
-</script>
+<script src="/dashboardscript.js"></script>
 
 <script src="/togglemenu.js"></script>
 

@@ -73,7 +73,7 @@
                   <% itemlist.forEach(item => { %>
                     <% profittotal += (item.soldprice-item.purchasedprice) * item.quantity %>
                     <% soldtotal += item.soldprice * item.quantity %>
-                    <tr data-id = "<%= JSON.stringify(item)  %>">
+                    <tr data-id = "<%= JSON.stringify(item)  %>" class="hover:bg-slate-100 p-3 mx-2 rounded-xl">
                       <td> <%= item.name %> </td>
                       <td> <%= item.model %> </td>
                       <td> <%= item.comment %> </td>

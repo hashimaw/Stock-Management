@@ -2,9 +2,11 @@ const express = require('express');
 const dashboardrouter = express.Router();
 const Items = require('../models/items');
 const SoldItems = require('../models/sold items');
+const { requireAuth } = require('../middleware/authmiddleware');
+const { async } = require('postcss-js');
 
-dashboardrouter.get('/dashboard', (req, res) => {
-    Items.find().sort({ updatedAt: -1 })
+dashboardrouter.get('/dashboard', requireAuth, async(req, res) => {
+    await Items.find().sort({ updatedAt: -1 })
     .then((result) => {
         res.render('dashboard', {itemlist: result});
     })
@@ -36,11 +38,11 @@ dashboardrouter.get('/dashboard/:search', async (req, res) => {
 
 
 
-dashboardrouter.post('/transaction', async (req, res) => {
+dashboardrouter.post('/transaction', requireAuth, async (req, res) => {
     
     if(req.body.quantity.length == 1){
         solditemtobesaved = new SoldItems(req.body);
-        Items.findById(solditemtobesaved.id)
+        await Items.findById(solditemtobesaved.id)
         .then((product) => {
             if (!product) {
             console.log('Product not found');
@@ -48,12 +50,12 @@ dashboardrouter.post('/transaction', async (req, res) => {
             }
 
             // Check if the quantity allows for deduction
-            if (product.quantity >> 0 && product.quantity >= solditemtobesaved.quantity && solditemtobesaved.quantity >> 0) {
+            if (product.quantity >> 0 && product.quantity >= solditemtobesaved.quantity && solditemtobesaved.quantity >> 0)  {
                 product.quantity -= solditemtobesaved.quantity;
                 product.save();
                 solditemtobesaved.save()
-                    .then((result) =>{
-                        Items.find().sort({ date: -1 })
+                    .then((result) => {
+                         Items.find().sort({ date: -1 })
                         .then((result) => {
                             res.redirect('/');
                             res.render('dashboard', {itemlist: result});
