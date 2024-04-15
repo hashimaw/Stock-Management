@@ -111,7 +111,8 @@
     "build-employeeaccounts": "tailwindcss build input.css -o Public/tailwindtest/employeeaccountsstyle.css",
     "build-transactionhistory": "tailwindcss build input.css -o Public/tailwindtest/transactionhistorystyle.css",
     "build-updateproducts": "tailwindcss build input.css -o Public/tailwindtest/updateproductsstyle.css",
-    "build-signup": "tailwindcss build input.css -o Public/tailwindtest/signupstyle.css"
+    "build-signup": "tailwindcss build input.css -o Public/tailwindtest/signupstyle.css",
+    "build-popuptest": "tailwindcss build input.css -o Public/tailwindtest/popupteststyle.css"
   },
   "keywords": [],
   "author": "",

@@ -59,7 +59,7 @@ const checkRole = async (req, res, next) => {
     }
     else {
         res.status(401);
-        res.send('You are not authorized to view this page');
+        res.send('You are not authorized');
         
     }
 }

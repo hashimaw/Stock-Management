@@ -1,7 +1,8 @@
 const express = require('express');
 const transactionhistoryrouter = express.Router();
 const SoldItems = require('../models/sold items');
-const { requireAuth, checkUser } = require('../middleware/authmiddleware');
+const Item = require('../models/items');
+const { requireAuth, checkUser, checkRole } = require('../middleware/authmiddleware');
 const { async } = require('postcss-js');
 
 transactionhistoryrouter.get('/transactionhistory', requireAuth, async (req, res) => {
@@ -19,6 +20,7 @@ transactionhistoryrouter.post('/transactionhistory/bydate', requireAuth, (req, r
     var endDate = req.body.enddate;
     res.redirect('/transactionhistory/' + startDate +'/' + endDate);
 })
+
 
 transactionhistoryrouter.get('/transactionhistory/:startDate/:endDate', requireAuth, async (req, res) => {
     const startDate = req.params.startDate;
@@ -38,5 +40,25 @@ transactionhistoryrouter.get('/transactionhistory/:startDate/:endDate', requireA
     })
 });
 
+
+transactionhistoryrouter.get('/transationrestore/:id', requireAuth, checkRole, async (req, res)=>{
+    const id = req.params.id;
+    await SoldItems.findById(id)
+    .then((result)=>{
+        console.log(result);
+        const itemid=result.id
+        const itemquantity={quantity: result.quantity}
+        Item.findByIdAndUpdate(itemid, {$inc: itemquantity}, { new: true })
+        .then((result)=>{
+            console.log(result);
+            SoldItems.findByIdAndDelete(id)
+            .then(()=>{
+                res.redirect('/transactionhistory');
+            }).catch((err)=>{console.log(err)})
+        })
+        .catch((err)=>{console.log(err)})
+    })
+    .catch((err)=>{console.log(err)})
+});
 
 module.exports = transactionhistoryrouter;
