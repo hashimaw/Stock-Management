@@ -9,13 +9,16 @@ This repository contains the code for a stock management web application. This a
 - **Product Management**: Add, edit, or remove products from your inventory with ease.
 - **User Management**: Manage user roles and permissions within the application.
 
-## Installation
-1. Clone this repository to your local machine.
-2. Install the necessary dependencies (you can list them here).
-3. Run the application (provide instructions on how to do this).
+## Want to see a demo?
+1. go to this site https://hash-stock-management.web.app
+2. there is test email and username as an admin you can use tahat to login
+3. this web app is deployed on a free server it may need 20 seconds to respond at first.
 
-## Usage
-Provide instructions on how to use your application. Include screenshots or videos if possible.
+## Technologies
+- **backend**: I use Node.js plus express.js
+- **frontend**: I use HTML, tailwind css and vanila javascript
+- **templating**: I use EJS for templating language
+- **database**: I use mongodb for database mongodb atlas to be more specific
 
 ## Contributing
 If you would like to contribute to this project, please follow these guidelines:
@@ -25,8 +28,5 @@ If you would like to contribute to this project, please follow these guidelines:
 4. Push your changes to your fork.
 5. Open a pull request.
 
-## License
-Include information about the license here.
-
 ## Contact
-If you have any questions or feedback, feel free to reach out (provide contact information here).
+If you have any questions or feedback, feel free to reach out https://t.me/lashimaw or mailto:hashimabdrehman@gmail.com.
