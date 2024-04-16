@@ -68,5 +68,5 @@ authrouter.get('/logout', (req, res) => {
 })
 
 
+module.exports = {handleErrors, authrouter};
 
-module.exports = authrouter;

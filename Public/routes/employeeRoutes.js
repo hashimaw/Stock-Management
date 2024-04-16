@@ -2,6 +2,7 @@ const express = require('express');
 const Users = require('../models/users');
 const { async } = require('postcss-js');
 const { requireAuth, checkRole } = require('../middleware/authmiddleware');
+const { handleErrors } = require('./authRoutes');
 const employeeaccountsrouter = express.Router();
 
 employeeaccountsrouter.get('/addemployee', requireAuth, checkRole ,(req, res) => {
@@ -39,11 +40,25 @@ employeeaccountsrouter.post('/addemployee', requireAuth, checkRole , async (req,
 
 employeeaccountsrouter.post('/addemployee/updateuser/:id', requireAuth, checkRole , async (req, res) => {
     console.log(req.params.id);
-    await Users.findByIdAndUpdate(req.params.id, req.body)
-    .then((result) =>{
+    await Users.findById(req.params.id)
+    .then(async(result) =>{
         console.log(result);
-        res.status(201).json({ user: result._id });
-    })
+        result.password=req.body.password;
+        result.email=req.body.email;
+        result.role=req.body.role;
+        result.firstname=req.body.firstname;
+        result.lastname=req.body.lastname;
+        result.phone=req.body.phone;
+        result.address=req.body.address;
+        result.gender=req.body.gender;
+        result.age=req.body.age;
+        console.log(result);
+        await result.save()
+        .then((result) =>{
+            console.log(result);
+            res.status(201).json({ user: result._id });
+        })
+    })    
     .catch((err) =>{
         const errors = handleErrors(err);
         res.status(400).json({ errors });

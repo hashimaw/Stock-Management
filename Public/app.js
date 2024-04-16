@@ -5,7 +5,7 @@ const { requireAuth, checkUser } = require('./middleware/authmiddleware');
 
 //routes
 const additemrouter = require('./routes/additemRoutes');
-const authrouter = require('./routes/authRoutes');
+const {authrouter} = require('./routes/authRoutes');
 const dashboardrouter = require('./routes/dashboardRoutes');
 const employeerouter = require('./routes/employeeRoutes');
 const transactionhistoryrouter = require('./routes/transactionhistoryRoutes');
