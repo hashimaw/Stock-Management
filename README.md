@@ -11,7 +11,7 @@ This repository contains the code for a stock management web application. This a
 
 ## Want to see a demo?
 1. go to this site https://hash-stock-management.web.app
-2. there is test email and username as an admin you can use tahat to login
+2. there is test email and username as an admin you can use that to login
 3. this web app is deployed on a free server it may need 20 seconds to respond at first.
 
 ## Technologies
