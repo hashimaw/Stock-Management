@@ -20,7 +20,7 @@ const app = express();
 //connect to mongodb
 const uri = "mongodb+srv://hashTheAdmin:HashTheAdmin@inventorymanagement.ekh6lts.mongodb.net/Stock-Management?retryWrites=true&w=majority&appName=InventoryManagement";
 mongoose.connect(uri)
-.then((result) => app.listen(3000))
+.then((result) => app.listen(9000))
 .catch((err) => console.log(err));
 
 
