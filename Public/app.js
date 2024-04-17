@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 const { requireAuth, checkUser } = require('./middleware/authmiddleware');
 
 //routes
@@ -26,6 +27,7 @@ mongoose.connect(uri)
 
 //register view engine
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 
 //static files and middleware
