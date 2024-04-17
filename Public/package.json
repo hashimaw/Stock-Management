@@ -1,8 +1,4 @@
-{
-    "devDependencies": {
-    "tailwindcss": "^3.4.1"
-  },
-  "name": "Hash-Stock-Management",
+
   "version": "1.0.0",
   "main": "app.js",
   "dependencies": {
