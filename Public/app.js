@@ -32,7 +32,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 //static files and middleware
 app.use(express.urlencoded({extended: true}));
-app.use(express.static('assets'));
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use(cookieParser());
 app.use(express.json());
 
