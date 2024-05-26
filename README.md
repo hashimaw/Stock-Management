@@ -10,7 +10,7 @@ This repository contains the code for a stock management web application. This a
 - **User Management**: Manage user roles and permissions within the application.
 
 ## Would you like to see a demo?
-1. go to this site https://hash-stock-management.onrender.com
+1. go to this site https://h-stock.onrender.com
 2. there is a test email and username as an admin you can use that to log in
 3. please be patient it takes around 20 seconds to load because it is hosted on a free server
 
