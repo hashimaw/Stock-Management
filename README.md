@@ -10,7 +10,7 @@ This repository contains the code for a stock management web application. This a
 - **User Management**: Manage user roles and permissions within the application.
 
 ## Want to see a demo?
-1. go to this site https://hashstock.cyclic.app
+1. go to this site https://hash-stock-management.onrender.com
 2. there is test email and username as an admin you can use that to login
 
 ## Technologies
